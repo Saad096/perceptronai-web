@@ -1,0 +1,154 @@
+export type Blog = {
+  slug: string;
+  title: string;
+  category: string;
+  excerpt: string;
+  date: string;
+  readingTime: string;
+  cover: string;
+  author: string;
+  content: string[];
+};
+
+export const blogs: Blog[] = [
+  {
+    slug: "production-ready-ai-not-demos",
+    title: "Why Businesses Need Production-Ready AI, Not Just Demos",
+    category: "AI Strategy",
+    excerpt:
+      "A polished demo means almost nothing. A production AI system means architecture, eval, observability, and a rollback path. Here's the difference, and why it matters for ROI.",
+    date: "2026-04-22",
+    readingTime: "7 min read",
+    cover: "",
+    author: "Saad Alam",
+    content: [
+      "Most failed AI projects don't fail because the model is bad. They fail because no one designed the path from a notebook to a service that survives Monday morning traffic.",
+      "Production-ready means four things: a clean data path with monitoring, evaluation that runs on every change, observability that catches drift, and a rollback plan that is rehearsed, not theoretical.",
+      "If your team can answer 'how do we know quality dropped 4% last week' in less than five minutes, you're production-ready. Otherwise you're shipping vibes.",
+      "At PerceptronAI we treat eval harnesses, Langfuse traces, and CI/CD as part of the deliverable — not an afterthought. The teams who succeed with AI invest in the boring layer before chasing the shiny one.",
+    ],
+  },
+  {
+    slug: "agentic-ai-business-automation",
+    title: "How Agentic AI Is Quietly Rewiring Business Automation",
+    category: "Agentic AI",
+    excerpt:
+      "Single-prompt chatbots are giving way to agents that take real actions across CRMs, helpdesks, and back-office tools. Where it works, where it doesn't, and how to design it safely.",
+    date: "2026-04-08",
+    readingTime: "9 min read",
+    cover: "",
+    author: "Saad Alam",
+    content: [
+      "A useful definition of an agent: a system that can plan, pick tools, take actions, observe results, and decide what to do next — repeatedly, with state.",
+      "Where it works today: structured operational workflows with clear success signals. Lead routing, ticket triage, recruitment screening, expense categorisation.",
+      "Where it still struggles: open-ended creative or strategic work without an authoritative truth source. Don't put an agent in charge of brand voice; put it in charge of work that has a right answer.",
+      "Design principles we use at PerceptronAI: typed tools, retries with backoff, human-in-the-loop checkpoints on irreversible actions, and end-to-end tracing on every run.",
+    ],
+  },
+  {
+    slug: "rag-enterprise-knowledge-search",
+    title: "RAG for Enterprise Knowledge Search — What Actually Works",
+    category: "RAG",
+    excerpt:
+      "Vector databases are not magic. Real enterprise RAG needs hybrid retrieval, re-rankers, and a measurable eval suite. A field guide from real deployments.",
+    date: "2026-03-26",
+    readingTime: "8 min read",
+    cover: "",
+    author: "Saad Alam",
+    content: [
+      "If your RAG system can't answer 'how good is retrieval today vs last week' with numbers, you don't have a system, you have a pipeline.",
+      "Hybrid search (BM25 + dense + re-rank) consistently outperforms pure vector search on enterprise content. The bias toward exact-token matching matters in legal, finance and engineering docs.",
+      "Chunking is underrated. Naïve fixed-window chunking destroys semantic units. Use semantic chunking, retain heading context, and store paragraph + heading metadata.",
+      "Build an eval set on day one — 100 question/answer/citation triples is enough to start. Every retrieval change ships with a regression report.",
+    ],
+  },
+  {
+    slug: "voice-ai-call-centers",
+    title: "Voice AI for Call Centers and Customer Support",
+    category: "Voice AI",
+    excerpt:
+      "Modern voice agents can handle real conversations on phone lines. The trick is sub-second latency, strict guardrails, and smart escalation.",
+    date: "2026-03-12",
+    readingTime: "6 min read",
+    cover: "",
+    author: "Saad Alam",
+    content: [
+      "The unlock for voice AI in 2026 was streaming ASR + streaming TTS + interruption handling. Without those three together, conversations feel robotic.",
+      "Phone-line audio is messy: codec compression, packet loss, noise. Build for that — train and eval on phone-grade audio, not studio recordings.",
+      "Escalation policy beats accuracy. A voice agent that confidently says 'let me transfer you to a human' is better than one that hallucinates with confidence.",
+      "Measure containment rate (calls resolved without human transfer), CSAT, and per-call cost. AI should beat IVR on all three, not just one.",
+    ],
+  },
+  {
+    slug: "mlops-observability-llm-systems",
+    title: "MLOps & Observability for LLM Systems",
+    category: "MLOps",
+    excerpt:
+      "Traditional MLOps tooling under-serves LLM workloads. Langfuse, LangSmith and prompt-level evals are the new observability stack.",
+    date: "2026-02-28",
+    readingTime: "10 min read",
+    cover: "",
+    author: "Saad Alam",
+    content: [
+      "Classic MLOps assumed batch training and offline eval. LLM workloads are online, prompt-driven, and dependent on third-party model APIs.",
+      "What changes: every prompt is a versioned artifact. Every tool call is an observable span. Every output gets an eval — automated where possible, human-graded where it matters.",
+      "Build a token-cost dashboard early. The teams that get burned are the ones who discover token spend two weeks after going viral, not before.",
+      "Pair LLM observability (Langfuse / LangSmith) with system observability (Grafana / Prometheus). Both stacks, side by side, is the configuration that holds up under real load.",
+    ],
+  },
+  {
+    slug: "build-ai-mvp-safely",
+    title: "How to Build an AI MVP Safely and Efficiently",
+    category: "Product",
+    excerpt:
+      "A 6–10 week recipe for going from idea to a deployable AI MVP — without the usual sprawl, scope creep, and demo-only deliverables.",
+    date: "2026-02-14",
+    readingTime: "7 min read",
+    cover: "",
+    author: "Saad Alam",
+    content: [
+      "Week 1 is discovery: stakeholders, success metric, data audit, risk map. Skip this and you'll rebuild in week 6.",
+      "Weeks 2-4 are vertical slices: end-to-end working features (UI + backend + model + deploy), one at a time. Avoid building the entire backend before any model integration.",
+      "Weeks 5-6 are productionisation: Docker, CI/CD, monitoring, secrets, runbook. This is the work that converts a demo into a product.",
+      "Always reserve the last week for handover: docs, runbook, eval suite, a recorded walkthrough. Founder-friendly handover is what makes a vendor worth a second project.",
+    ],
+  },
+  {
+    slug: "ai-product-roadmap-startups",
+    title: "An AI Product Development Roadmap for Startups",
+    category: "Strategy",
+    excerpt:
+      "Startups don't have time to play AI lab. Here's a pragmatic 6-month roadmap that balances learning, shipping, and not burning your runway.",
+    date: "2026-01-30",
+    readingTime: "8 min read",
+    cover: "",
+    author: "Saad Alam",
+    content: [
+      "Month 1: pick one painful workflow you understand cold. Build the dumbest possible AI solution for it. Ship it to 5 users.",
+      "Month 2-3: instrument everything. Add an eval set. Tighten the loop between user behaviour and model behaviour.",
+      "Month 4: pick the second feature only after the first one moves a real number. Resist the urge to ship features that demo well but don't measure.",
+      "Month 5-6: harden, scale, hire. Move to multi-tenant infra, add SSO/security, write the runbook. By now you've earned the right to chase ambitious features.",
+    ],
+  },
+  {
+    slug: "edge-ai-when-cloud-isnt-enough",
+    title: "Edge AI — When the Cloud Isn't Fast or Private Enough",
+    category: "Edge AI",
+    excerpt:
+      "Latency, privacy, and offline use-cases push models out of the cloud. A practical guide to quantization, on-device inference, and hybrid routing.",
+    date: "2026-01-16",
+    readingTime: "6 min read",
+    cover: "",
+    author: "Saad Alam",
+    content: [
+      "Edge AI isn't 'AI but slower'. It's a deployment topology where models run close to the data: phones, kiosks, cameras, factory floors, vehicles.",
+      "Three reasons to choose edge: hard latency budgets (under 100ms), strict privacy/compliance, or expensive/unreliable connectivity.",
+      "The stack is converging: ONNX Runtime, TensorRT, OpenVINO, Core ML, TFLite. Pick by device class, then optimize: quantize, prune, distill.",
+      "Hybrid edge–cloud is the realistic shape: lightweight inference on-device, heavier reasoning offloaded to the cloud when network and policy allow.",
+    ],
+  },
+];
+
+export function getBlog(slug: string): Blog | undefined {
+  return blogs.find((b) => b.slug === slug);
+}

@@ -1,0 +1,27 @@
+services:
+  perceptronai-web:
+    container_name: perceptronai-web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: perceptronai-web:latest
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      NEXT_TELEMETRY_DISABLED: "1"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    networks:
+      - perceptronai-net
+
+networks:
+  perceptronai-net:
+    driver: bridge
