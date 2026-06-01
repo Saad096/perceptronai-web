@@ -19,7 +19,7 @@ export function AboutPreview() {
         <div className="grid items-center gap-12 lg:grid-cols-12">
           <Reveal className="lg:col-span-6">
             <SectionHeading
-              eyebrow="About PerceptronAI"
+              eyebrow="About QentrixAI"
               title="An AI product studio that ships — not a slide-deck consultancy."
               description="We combine AI research, engineering, cloud infrastructure, business analysis and product strategy under one team. From idea framing to production rollout, you get senior people, not delegated juniors."
             />

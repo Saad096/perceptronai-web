@@ -115,7 +115,7 @@ export const products: Product[] = [
       "Langfuse / LangSmith tracing out-of-the-box",
     ],
     targetUsers: [
-      "Internal PerceptronAI delivery teams",
+      "Internal QentrixAI delivery teams",
       "Enterprise clients building agent platforms",
     ],
     techStack: ["LangGraph", "LangChain", "Python", "FastAPI", "Postgres", "Redis", "Langfuse"],

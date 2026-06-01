@@ -36,7 +36,7 @@ export const team: TeamMember[] = [
     name: "Shahid Nawaz",
     role: "CTO",
     background: "Blockchain & Platform Engineering",
-    bio: "Technology leader focused on blockchain architecture, secure platforms and scalable engineering systems. Owns platform direction, security posture and engineering quality bar at PerceptronAI.",
+    bio: "Technology leader focused on blockchain architecture, secure platforms and scalable engineering systems. Owns platform direction, security posture and engineering quality bar at QentrixAI.",
     image: "/team/shahid-nawaz.jpeg",
     linkedin: publicEnv.team.shahidLinkedIn,
     skills: [

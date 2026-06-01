@@ -4,7 +4,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Terms of Service",
   path: "/terms",
-  description: "Terms governing your use of the PerceptronAI website.",
+  description: "Terms governing your use of the QentrixAI website.",
 });
 
 export default function TermsPage() {
@@ -19,7 +19,7 @@ export default function TermsPage() {
         <div className="prose prose-invert mt-8 max-w-none text-white/75">
           <h2 className="font-display text-xl font-semibold text-white">Use of this site</h2>
           <p>
-            This website ("Site") is provided by PerceptronAI for informational purposes. Content
+            This website ("Site") is provided by QentrixAI for informational purposes. Content
             is provided "as is" without warranties of any kind. By using the Site you agree to
             these Terms.
           </p>
@@ -33,7 +33,7 @@ export default function TermsPage() {
 
           <h2 className="mt-8 font-display text-xl font-semibold text-white">Intellectual property</h2>
           <p>
-            All Site content, including text, design, code, and graphics, is owned by PerceptronAI
+            All Site content, including text, design, code, and graphics, is owned by QentrixAI
             or licensed to it. Don't reuse it without permission.
           </p>
 
@@ -45,7 +45,7 @@ export default function TermsPage() {
 
           <h2 className="mt-8 font-display text-xl font-semibold text-white">Limitation of liability</h2>
           <p>
-            To the maximum extent allowed by law, PerceptronAI is not liable for indirect,
+            To the maximum extent allowed by law, QentrixAI is not liable for indirect,
             incidental, or consequential damages arising from your use of the Site.
           </p>
 

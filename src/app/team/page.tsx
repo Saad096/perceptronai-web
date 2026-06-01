@@ -10,7 +10,7 @@ export const metadata = buildMetadata({
   title: "Team",
   path: "/team",
   description:
-    "Meet the PerceptronAI team — senior operators across AI engineering, platform, cloud and product.",
+    "Meet the QentrixAI team — senior operators across AI engineering, platform, cloud and product.",
 });
 
 export default function TeamPage() {

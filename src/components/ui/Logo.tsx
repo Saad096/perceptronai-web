@@ -3,8 +3,8 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 /**
- * Logo: small white "chip" carrying the PerceptronAI mark, paired with the
- * PerceptronAI wordmark in display type. The chip keeps the mark readable on
+ * Logo: small white "chip" carrying the QentrixAI mark, paired with the
+ * QentrixAI wordmark in display type. The chip keeps the mark readable on
  * the dark UI; the wordmark guarantees brand legibility at any header size.
  */
 export function Logo({
@@ -27,7 +27,7 @@ export function Logo({
   return (
     <Link
       href="/"
-      aria-label="PerceptronAI — home"
+      aria-label="QentrixAI — home"
       className={cn(
         "group relative inline-flex items-center gap-2.5 transition-opacity",
         className
@@ -48,8 +48,8 @@ export function Logo({
         )}
       >
         <Image
-          src="/logo/perceptronai-logo.webp"
-          alt="PerceptronAI logo mark"
+          src="/logo/qentrixai-logo.png"
+          alt="QentrixAI logo mark"
           width={120}
           height={120}
           className="size-full object-contain p-1"
@@ -62,7 +62,7 @@ export function Logo({
           text
         )}
       >
-        Perceptron<span className="text-gradient-brand">AI</span>
+        Qentrix<span className="text-gradient-brand">AI</span>
       </span>
     </Link>
   );

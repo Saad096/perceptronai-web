@@ -25,7 +25,7 @@ export const blogs: Blog[] = [
       "Most failed AI projects don't fail because the model is bad. They fail because no one designed the path from a notebook to a service that survives Monday morning traffic.",
       "Production-ready means four things: a clean data path with monitoring, evaluation that runs on every change, observability that catches drift, and a rollback plan that is rehearsed, not theoretical.",
       "If your team can answer 'how do we know quality dropped 4% last week' in less than five minutes, you're production-ready. Otherwise you're shipping vibes.",
-      "At PerceptronAI we treat eval harnesses, Langfuse traces, and CI/CD as part of the deliverable — not an afterthought. The teams who succeed with AI invest in the boring layer before chasing the shiny one.",
+      "At QentrixAI we treat eval harnesses, Langfuse traces, and CI/CD as part of the deliverable — not an afterthought. The teams who succeed with AI invest in the boring layer before chasing the shiny one.",
     ],
   },
   {
@@ -42,7 +42,7 @@ export const blogs: Blog[] = [
       "A useful definition of an agent: a system that can plan, pick tools, take actions, observe results, and decide what to do next — repeatedly, with state.",
       "Where it works today: structured operational workflows with clear success signals. Lead routing, ticket triage, recruitment screening, expense categorisation.",
       "Where it still struggles: open-ended creative or strategic work without an authoritative truth source. Don't put an agent in charge of brand voice; put it in charge of work that has a right answer.",
-      "Design principles we use at PerceptronAI: typed tools, retries with backoff, human-in-the-loop checkpoints on irreversible actions, and end-to-end tracing on every run.",
+      "Design principles we use at QentrixAI: typed tools, retries with backoff, human-in-the-loop checkpoints on irreversible actions, and end-to-end tracing on every run.",
     ],
   },
   {

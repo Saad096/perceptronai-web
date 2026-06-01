@@ -4,7 +4,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Privacy Policy",
   path: "/privacy",
-  description: "How PerceptronAI handles personal information, project data, and communications.",
+  description: "How QentrixAI handles personal information, project data, and communications.",
 });
 
 export default function PrivacyPage() {
@@ -19,7 +19,7 @@ export default function PrivacyPage() {
         <div className="prose prose-invert mt-8 max-w-none text-white/75">
           <h2 className="font-display text-xl font-semibold text-white">Overview</h2>
           <p>
-            PerceptronAI ("we", "us") provides AI engineering services and operates this
+            QentrixAI ("we", "us") provides AI engineering services and operates this
             website. This policy explains what information we collect, why, and how we handle
             it. We aim for plain language and minimum data collection.
           </p>

@@ -60,7 +60,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.12 }}
             className="mx-auto mt-6 max-w-2xl text-[17px] leading-relaxed text-white/65 md:text-[18px]"
           >
-            PerceptronAI designs and develops GenAI apps, agentic workflows, RAG systems, voice AI platforms and scalable cloud-native products for startups and businesses. Strategy to deployment — under one roof.
+            QentrixAI designs and develops GenAI apps, agentic workflows, RAG systems, voice AI platforms and scalable cloud-native products for startups and businesses. Strategy to deployment — under one roof.
           </motion.p>
 
           <motion.div

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { publicEnv } from "./env";
 
 const defaultDescription =
-  "PerceptronAI is a hybrid AI services and product studio. We build GenAI, Agentic AI, RAG, Voice AI, Computer Vision, NLP, Edge AI, Responsible AI, and Blockchain × AI systems — engineered for production, deployed on cloud or on-prem.";
+  "QentrixAI is a hybrid AI services and product studio. We build GenAI, Agentic AI, RAG, Voice AI, Computer Vision, NLP, Edge AI, Responsible AI, and Blockchain × AI systems — engineered for production, deployed on cloud or on-prem.";
 
 export const defaultKeywords = [
   "AI development company",
@@ -23,7 +23,7 @@ export const defaultKeywords = [
   "AI SaaS development",
   "AI consulting Pakistan",
   "AI product development company",
-  "PerceptronAI",
+  "QentrixAI",
 ];
 
 type SeoInput = {
@@ -77,9 +77,9 @@ export function buildMetadata({
     },
     icons: {
       icon: [
-        { url: "/logo/perceptronai-logo.webp", type: "image/webp" },
+        { url: "/logo/qentrixai-logo.png", type: "image/png" },
       ],
-      apple: "/logo/perceptronai-logo.webp",
+      apple: "/logo/qentrixai-logo.png",
     },
   };
 }
@@ -90,7 +90,7 @@ export function organizationJsonLd() {
     "@type": "Organization",
     name: publicEnv.siteName,
     url: publicEnv.siteUrl,
-    logo: `${publicEnv.siteUrl}/logo/perceptronai-logo.webp`,
+    logo: `${publicEnv.siteUrl}/logo/qentrixai-logo.png`,
     description: defaultDescription,
     foundingDate: "2024",
     email: publicEnv.profile.email,

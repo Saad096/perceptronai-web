@@ -11,7 +11,7 @@ export const metadata = buildMetadata({
   title: "Contact",
   path: "/contact",
   description:
-    "Talk to PerceptronAI about your AI project. Book a strategy call, send a brief, or reach us on email or WhatsApp.",
+    "Talk to QentrixAI about your AI project. Book a strategy call, send a brief, or reach us on email or WhatsApp.",
 });
 
 export default function ContactPage() {

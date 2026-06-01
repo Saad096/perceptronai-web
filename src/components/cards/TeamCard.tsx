@@ -8,7 +8,7 @@ export function TeamCard({ member }: { member: TeamMember }) {
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-gradient-to-br from-ink-800 to-ink-900">
         <Image
           src={member.image}
-          alt={`${member.name}, ${member.role} at PerceptronAI`}
+          alt={`${member.name}, ${member.role} at QentrixAI`}
           fill
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"

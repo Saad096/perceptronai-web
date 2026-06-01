@@ -1,6 +1,6 @@
-# PerceptronAI — Company Website
+# QentrixAI — Company Website
 
-A premium, production-ready company website for **PerceptronAI** — a hybrid AI services + product studio. Built with Next.js 15, TypeScript, Tailwind CSS and Framer Motion. Config-driven content, Dockerized for deployment.
+A premium, production-ready company website for **QentrixAI** — a hybrid AI services + product studio. Built with Next.js 15, TypeScript, Tailwind CSS and Framer Motion. Config-driven content, Dockerized for deployment.
 
 ---
 
@@ -83,7 +83,7 @@ src/
     mail.ts           # SMTP / Resend / SendGrid provider
     utils.ts          # cn(), formatDate(), readingTime()
 public/
-  logo/perceptronai-logo.webp
+  logo/qentrixai-logo.webp
   products/*.png      # Product screenshots
   team/*.jpeg|.png    # Team headshots
   resume/*.pdf        # Served by /api/resume
@@ -218,8 +218,8 @@ The site is served at `http://localhost:3000`.
 ### Or build manually
 
 ```bash
-docker build -t perceptronai-web .
-docker run -d --name perceptronai-web -p 3000:3000 --env-file .env perceptronai-web
+docker build -t qentrixai-web .
+docker run -d --name qentrixai-web -p 3000:3000 --env-file .env qentrixai-web
 ```
 
 The Dockerfile uses Next.js `output: "standalone"` for a tiny runtime image (~150 MB).
@@ -236,22 +236,22 @@ The Dockerfile uses Next.js `output: "standalone"` for a tiny runtime image (~15
 
 2. **Clone the repo & build**:
    ```bash
-   git clone <repo-url> /opt/perceptronai
-   cd /opt/perceptronai
+   git clone <repo-url> /opt/qentrixai
+   cd /opt/qentrixai
    cp .env.example .env && nano .env   # fill in values
    docker compose up -d --build
    ```
 
 3. **Nginx reverse proxy**:
    ```bash
-   sudo cp deploy/nginx.example.conf /etc/nginx/sites-available/perceptronai.conf
-   sudo ln -s /etc/nginx/sites-available/perceptronai.conf /etc/nginx/sites-enabled/
+   sudo cp deploy/nginx.example.conf /etc/nginx/sites-available/qentrixai.conf
+   sudo ln -s /etc/nginx/sites-available/qentrixai.conf /etc/nginx/sites-enabled/
    sudo nginx -t && sudo systemctl reload nginx
    ```
 
 4. **SSL with Certbot**:
    ```bash
-   sudo certbot --nginx -d perceptronai.com -d www.perceptronai.com
+   sudo certbot --nginx -d qentrixai.com -d www.qentrixai.com
    ```
 
 5. **Updates**:
@@ -304,6 +304,6 @@ The Dockerfile uses Next.js `output: "standalone"` for a tiny runtime image (~15
 
 ## Credits
 
-Built by PerceptronAI. Design and engineering: Saad Alam (CEO, AI), Shahid Nawaz (CTO), Shafaat Ullah (Cloud/DevOps), Mawra Muneer (Business Analysis).
+Built by QentrixAI. Design and engineering: Saad Alam (CEO, AI), Shahid Nawaz (CTO), Shafaat Ullah (Cloud/DevOps), Mawra Muneer (Business Analysis).
 
-License: All rights reserved. Internal use by PerceptronAI.
+License: All rights reserved. Internal use by QentrixAI.

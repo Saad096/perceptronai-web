@@ -10,7 +10,7 @@ export const metadata = buildMetadata({
   title: "Careers",
   path: "/careers",
   description:
-    "Join PerceptronAI. We hire senior AI engineers, platform engineers, and product operators who care about shipping production-grade systems.",
+    "Join QentrixAI. We hire senior AI engineers, platform engineers, and product operators who care about shipping production-grade systems.",
 });
 
 const principles = [

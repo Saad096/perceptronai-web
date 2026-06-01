@@ -7,8 +7,8 @@
 const pick = (v: string | undefined, fallback = "") => (v && v.trim().length > 0 ? v : fallback);
 
 export const publicEnv = {
-  siteUrl: pick(process.env.NEXT_PUBLIC_SITE_URL, "https://perceptronai.com"),
-  siteName: pick(process.env.NEXT_PUBLIC_SITE_NAME, "PerceptronAI"),
+  siteUrl: pick(process.env.NEXT_PUBLIC_SITE_URL, "https://qentrixai.com"),
+  siteName: pick(process.env.NEXT_PUBLIC_SITE_NAME, "QentrixAI"),
 
   profile: {
     name: pick(process.env.NEXT_PUBLIC_PROFILE_NAME, "Saad Alam"),

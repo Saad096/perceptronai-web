@@ -36,14 +36,14 @@ export type ContactPayload = {
 
 function resendSender(): { email: string; name: string; header: string } {
   const email = process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev";
-  const name = process.env.RESEND_FROM_NAME ?? "PerceptronAI";
+  const name = process.env.RESEND_FROM_NAME ?? "QentrixAI";
   return { email, name, header: `${name} <${email}>` };
 }
 
 function sendgridSender(): { email: string; name: string } {
   return {
-    email: process.env.SENDGRID_FROM_EMAIL ?? "noreply@perceptronai.com",
-    name: process.env.SENDGRID_FROM_NAME ?? "PerceptronAI",
+    email: process.env.SENDGRID_FROM_EMAIL ?? "noreply@qentrixai.com",
+    name: process.env.SENDGRID_FROM_NAME ?? "QentrixAI",
   };
 }
 
@@ -54,7 +54,7 @@ const TO =
 
 function buildPlainText(p: ContactPayload) {
   return [
-    "New inbound from the PerceptronAI website",
+    "New inbound from the QentrixAI website",
     "------------------------------------------",
     `Name:     ${p.name}`,
     `Email:    ${p.email}`,
@@ -97,7 +97,7 @@ function buildHtml(p: ContactPayload) {
 
   const messageHtml = escapeHtml(p.message).replace(/\n/g, "<br>");
   const mailtoReply = `mailto:${encodeURIComponent(p.email)}?subject=${encodeURIComponent(
-    "Re: your message to PerceptronAI"
+    "Re: your message to QentrixAI"
   )}`;
 
   return `<!doctype html>
@@ -107,18 +107,18 @@ function buildHtml(p: ContactPayload) {
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light only">
     <meta name="supported-color-schemes" content="light only">
-    <title>New inquiry — PerceptronAI</title>
+    <title>New inquiry — QentrixAI</title>
     <!--[if mso]><style>body,table,td{font-family:Segoe UI,Arial,sans-serif !important;}</style><![endif]-->
   </head>
   <body style="margin:0;padding:0;background:#f3f4f6;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#0f172a;">
-    <span style="display:none !important;visibility:hidden;opacity:0;color:transparent;height:0;width:0;overflow:hidden;">New inquiry from ${escapeHtml(p.name)} — ${escapeHtml(p.service || "PerceptronAI website")}.</span>
+    <span style="display:none !important;visibility:hidden;opacity:0;color:transparent;height:0;width:0;overflow:hidden;">New inquiry from ${escapeHtml(p.name)} — ${escapeHtml(p.service || "QentrixAI website")}.</span>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f3f4f6;padding:28px 12px;">
       <tr>
         <td align="center">
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:620px;background:#ffffff;border-radius:16px;border:1px solid #e5e7eb;overflow:hidden;box-shadow:0 12px 40px -16px rgba(15,23,42,0.18);">
             <tr>
               <td style="background:linear-gradient(135deg,#3b66ff 0%,#8b5cf6 55%,#22d3ee 100%);padding:24px 30px;">
-                <div style="color:#ffffff;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;font-weight:700;opacity:0.92;">PerceptronAI · Website inquiry</div>
+                <div style="color:#ffffff;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;font-weight:700;opacity:0.92;">QentrixAI · Website inquiry</div>
                 <div style="color:#ffffff;font-size:22px;font-weight:700;margin-top:8px;line-height:1.25;">New brief from ${escapeHtml(p.name)}</div>
                 ${p.service ? `<div style="color:rgba(255,255,255,0.92);font-size:13px;margin-top:4px;">Interested in <strong>${escapeHtml(p.service)}</strong>${p.budget ? ` · budget ${escapeHtml(p.budget)}` : ""}</div>` : ""}
               </td>
@@ -156,7 +156,7 @@ function buildHtml(p: ContactPayload) {
             <tr>
               <td style="padding:16px 30px 22px 30px;border-top:1px solid #e5e7eb;background:#fafafa;">
                 <div style="font-size:11px;color:#9ca3af;line-height:1.6;">
-                  Sent via the PerceptronAI website contact form · perceptronai.com<br>
+                  Sent via the QentrixAI website contact form · qentrixai.com<br>
                   This message was relayed by an authenticated sender. Replies route back to ${escapeHtml(p.email)}.
                 </div>
               </td>
@@ -173,7 +173,7 @@ export async function sendContactEmail(
   payload: ContactPayload
 ): Promise<{ ok: boolean; provider: string; reason?: string; id?: string }> {
   const provider = (process.env.EMAIL_PROVIDER ?? "").toLowerCase();
-  const subject = `[PerceptronAI] New brief from ${payload.name}`;
+  const subject = `[QentrixAI] New brief from ${payload.name}`;
   const text = buildPlainText(payload);
   const html = buildHtml(payload);
 
@@ -243,7 +243,7 @@ export async function sendContactEmail(
           : undefined,
       });
       await transporter.sendMail({
-        from: process.env.MAIL_FROM ?? `PerceptronAI <${process.env.SMTP_USER ?? "noreply@perceptronai.com"}>`,
+        from: process.env.MAIL_FROM ?? `QentrixAI <${process.env.SMTP_USER ?? "noreply@qentrixai.com"}>`,
         to: TO,
         subject,
         text,

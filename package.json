@@ -1,8 +1,8 @@
 {
-  "name": "perceptronai-web",
+  "name": "qentrixai-web",
   "version": "1.0.0",
   "private": true,
-  "description": "PerceptronAI - Production-ready AI products, agents & automation systems.",
+  "description": "QentrixAI - Production-ready AI products, agents & automation systems.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

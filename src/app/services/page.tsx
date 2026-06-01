@@ -12,7 +12,7 @@ export const metadata = buildMetadata({
   title: "AI Services",
   path: "/services",
   description:
-    "Production-grade AI services from PerceptronAI: Generative AI, Agentic AI, RAG, Voice AI, Computer Vision, NLP & Document AI, Edge AI, Responsible AI, Blockchain & Web3, Cloud / DevOps / MLOps, and AI strategy consulting.",
+    "Production-grade AI services from QentrixAI: Generative AI, Agentic AI, RAG, Voice AI, Computer Vision, NLP & Document AI, Edge AI, Responsible AI, Blockchain & Web3, Cloud / DevOps / MLOps, and AI strategy consulting.",
   keywords: [
     "AI development company",
     "Generative AI services",
@@ -27,7 +27,7 @@ export const metadata = buildMetadata({
     "AI x Blockchain development",
     "MLOps consulting",
     "AI strategy consulting",
-    "PerceptronAI",
+    "QentrixAI",
   ],
 });
 

@@ -9,7 +9,7 @@ export function WhyUs() {
     <section className="section">
       <Container>
         <SectionHeading
-          eyebrow="Why PerceptronAI"
+          eyebrow="Why QentrixAI"
           title="Senior people. Production discipline. Skin in the game."
         />
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">

@@ -14,7 +14,7 @@ export const metadata = buildMetadata({
   title: "About",
   path: "/about",
   description:
-    "PerceptronAI is an AI product and services company building practical, scalable AI systems — combining AI research, engineering, cloud infrastructure, business analysis and product strategy.",
+    "QentrixAI is an AI product and services company building practical, scalable AI systems — combining AI research, engineering, cloud infrastructure, business analysis and product strategy.",
 });
 
 export default function AboutPage() {
@@ -25,7 +25,7 @@ export default function AboutPage() {
           <div className="grid items-start gap-12 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <SectionHeading
-                eyebrow="About PerceptronAI"
+                eyebrow="About QentrixAI"
                 title="An AI product studio and delivery partner — engineered for production."
                 description={company.mission}
               />
@@ -65,7 +65,7 @@ export default function AboutPage() {
                 <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-ink-900">
                   <Image
                     src="/products/neuromesh-1.png"
-                    alt="PerceptronAI engineering — NeuroMesh agent graph"
+                    alt="QentrixAI engineering — NeuroMesh agent graph"
                     width={1200}
                     height={900}
                     className="w-full object-cover"

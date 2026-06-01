@@ -1,11 +1,11 @@
 export const company = {
-  name: "PerceptronAI",
-  legalName: "PerceptronAI",
+  name: "QentrixAI",
+  legalName: "QentrixAI",
   tagline: "AI Product Studio + Automation Partner",
   mission:
     "We help startups and businesses turn ideas into intelligent, scalable, deployable AI systems — from strategy and MVP design to cloud deployment, observability, and growth.",
   positioning:
-    "PerceptronAI builds production-ready AI systems, intelligent automation platforms, and scalable software products for modern businesses.",
+    "QentrixAI builds production-ready AI systems, intelligent automation platforms, and scalable software products for modern businesses.",
   founded: "2024",
   location: "Lahore, Pakistan — serving clients worldwide",
   hours: "Mon – Sat · 9:00 – 19:00 PKT",

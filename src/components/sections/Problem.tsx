@@ -33,7 +33,7 @@ export function Problem() {
         <SectionHeading
           eyebrow="The Problem"
           title="Most AI projects fail after the demo. Here's why."
-          description="It's rarely the model. It's the lack of architecture, evaluation, observability, deployment planning and business alignment. PerceptronAI focuses on the full path — not just the shiny part."
+          description="It's rarely the model. It's the lack of architecture, evaluation, observability, deployment planning and business alignment. QentrixAI focuses on the full path — not just the shiny part."
           align="center"
         />
         <div className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2">
