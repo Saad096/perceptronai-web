@@ -307,3 +307,4 @@ The Dockerfile uses Next.js `output: "standalone"` for a tiny runtime image (~15
 Built by QentrixAI. Design and engineering: Saad Alam (CEO, AI), Shahid Nawaz (CTO), Shafaat Ullah (Cloud/DevOps), Mawra Muneer (Business Analysis).
 
 License: All rights reserved. Internal use by QentrixAI.
+##################################################################################333
