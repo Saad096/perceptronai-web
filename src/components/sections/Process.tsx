@@ -14,21 +14,21 @@ export function Process() {
         />
 
         <div className="relative mt-14">
-          <div className="absolute left-0 right-0 top-9 hidden h-px bg-gradient-to-r from-transparent via-white/15 to-transparent md:block" />
+          <div className="absolute left-0 right-0 top-9 hidden h-px bg-gradient-to-r from-transparent via-ink/15 to-transparent md:block" />
           <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-6">
             {company.process.map((p, i) => (
               <Reveal key={p.step} delay={i * 0.05}>
                 <div className="relative">
-                  <div className="mx-auto grid size-[68px] place-items-center rounded-full border border-white/10 bg-ink-900 shadow-glow">
+                  <div className="mx-auto grid size-[68px] place-items-center rounded-full border border-ink/10 bg-surface shadow-glow">
                     <span className="font-display text-[18px] font-semibold tracking-tight text-gradient-brand">
                       {p.step}
                     </span>
                   </div>
                   <div className="mt-4 text-center">
-                    <h3 className="font-display text-[15px] font-semibold tracking-tight text-white">
+                    <h3 className="font-display text-[15px] font-semibold tracking-tight text-ink">
                       {p.title}
                     </h3>
-                    <p className="mt-2 text-[13.5px] leading-relaxed text-white/60">
+                    <p className="mt-2 text-[13.5px] leading-relaxed text-ink/60">
                       {p.body}
                     </p>
                   </div>

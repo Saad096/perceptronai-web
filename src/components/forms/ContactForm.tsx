@@ -1,20 +1,26 @@
 "use client";
 
+/**
+ * 2026-07 revamp: renamed the service select to "What are you looking to
+ * solve?", added the accent focus glow on inputs, a human note above the
+ * fields, and a "Message sent ✓" submit-button success state. Submit goes
+ * full-width on mobile.
+ */
 import * as React from "react";
-import { Send, MessageCircle, Mail, Loader2 } from "lucide-react";
+import { Send, MessageCircle, Mail, Loader2, Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { publicEnv } from "@/lib/env";
 import { cn } from "@/lib/utils";
 
-const services = [
-  "Generative AI",
-  "Agentic AI",
-  "RAG / Enterprise Search",
-  "Voice AI",
-  "Edge AI",
-  "AI MVP",
-  "Cloud & DevOps",
-  "Other",
+const problems = [
+  "Ship an LLM product or copilot",
+  "Automate a workflow with agents",
+  "Search and answer over our documents",
+  "Automate calls with voice AI",
+  "Computer vision or document AI",
+  "Launch an AI MVP",
+  "Cloud, MLOps or AI infrastructure",
+  "Something else",
 ];
 
 const budgets = [
@@ -42,7 +48,7 @@ export function ContactForm() {
     const data = Object.fromEntries(new FormData(form).entries());
 
     if ((data as Record<string, string>).honeypot) {
-      setState({ status: "success", message: "Thanks — we'll be in touch." });
+      setState({ status: "success", message: "Thanks, we'll be in touch." });
       return;
     }
 
@@ -56,25 +62,29 @@ export function ContactForm() {
       if (!res.ok) {
         setState({
           status: "error",
-          message: json?.message || "Couldn't send right now. Please email or WhatsApp us — link below.",
+          message: json?.message || "We couldn't send that right now. Please email or WhatsApp us with the links below.",
         });
         return;
       }
       setState({
         status: "success",
-        message: json?.message || "Thanks — we received your message and will reply within one business day.",
+        message: json?.message || "Thanks, we received your message and will reply within one business day.",
       });
       form.reset();
     } catch {
       setState({
         status: "error",
-        message: "Network issue. Please email or WhatsApp us — link below.",
+        message: "Network issue. Please email or WhatsApp us with the links below.",
       });
     }
   }
 
   return (
     <form onSubmit={onSubmit} className="grid gap-4">
+      <p className="text-[14px] leading-relaxed text-ink/65">
+        We read every message and respond within one business day.
+      </p>
+
       <input type="text" name="honeypot" autoComplete="off" tabIndex={-1} className="hidden" />
 
       <div className="grid gap-4 sm:grid-cols-2">
@@ -82,20 +92,28 @@ export function ContactForm() {
         <Field label="Email" name="email" type="email" required placeholder="you@company.com" />
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
-        <Field label="Company" name="company" type="text" placeholder="Company / project" />
+        <Field label="Company (optional)" name="company" type="text" placeholder="Company / project" />
         <Field label="Phone / WhatsApp" name="phone" type="text" placeholder="+1 555 …" />
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
-        <Select label="Service interested in" name="service" options={services} />
+        <Select label="What are you looking to solve?" name="service" options={problems} />
         <Select label="Budget range" name="budget" options={budgets} />
       </div>
       <Field label="Message" name="message" type="textarea" required placeholder="Tell us about the problem, the team, and the ideal timeline." />
 
-      <div className="mt-2 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-        <Button type="submit" disabled={state.status === "submitting"}>
+      <div className="mt-2 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+        <Button
+          type="submit"
+          disabled={state.status === "submitting" || state.status === "success"}
+          className="w-full sm:w-auto"
+        >
           {state.status === "submitting" ? (
             <>
               <Loader2 className="size-4 animate-spin" /> Sending…
+            </>
+          ) : state.status === "success" ? (
+            <>
+              <Check className="size-4" /> Message sent
             </>
           ) : (
             <>
@@ -103,23 +121,20 @@ export function ContactForm() {
             </>
           )}
         </Button>
-        <p className="text-[12.5px] text-white/50">
-          We typically respond within one business day.
-        </p>
       </div>
 
       {state.status === "success" && (
-        <div className="rounded-xl border border-emerald-400/20 bg-emerald-400/10 px-4 py-3 text-[14px] text-emerald-200">
+        <div className="rounded-xl border border-accent-mint/25 bg-accent-mint/10 px-4 py-3 text-[14px] text-emerald-700 dark:text-emerald-200">
           {state.message}
         </div>
       )}
       {state.status === "error" && (
-        <div className="rounded-xl border border-amber-400/20 bg-amber-400/10 px-4 py-3 text-[14px] text-amber-200">
+        <div className="rounded-xl border border-amber-400/25 bg-amber-400/10 px-4 py-3 text-[14px] text-amber-700 dark:text-amber-200">
           <p>{state.message}</p>
           <div className="mt-2 flex flex-wrap gap-3">
             <a
               href={`mailto:${publicEnv.profile.email}`}
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 text-[13px] text-white"
+              className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-ink/[0.05] px-3 py-1.5 text-[13px] text-ink"
             >
               <Mail className="size-3.5" /> Email
             </a>
@@ -128,7 +143,7 @@ export function ContactForm() {
                 href={publicEnv.socials.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 text-[13px] text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-ink/[0.05] px-3 py-1.5 text-[13px] text-ink"
               >
                 <MessageCircle className="size-3.5" /> WhatsApp
               </a>
@@ -141,7 +156,7 @@ export function ContactForm() {
 }
 
 const inputClass =
-  "w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-[14.5px] text-white placeholder-white/35 outline-none transition focus:border-brand-400/60 focus:bg-white/[0.05] focus:ring-2 focus:ring-brand-400/30";
+  "w-full rounded-xl border border-ink/10 bg-surface/60 px-4 py-3 text-[14.5px] text-ink placeholder-ink/35 outline-none transition duration-200 focus:border-accent/60 focus:shadow-[0_0_0_3px_rgb(var(--color-accent-rgb)/0.2)]";
 
 function Field({
   label,
@@ -158,9 +173,9 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="block text-[12.5px] font-medium uppercase tracking-[0.12em] text-white/60">
+      <span className="block text-[12.5px] font-medium uppercase tracking-[0.12em] text-ink/60">
         {label}
-        {required && <span className="text-brand-300"> *</span>}
+        {required && <span className="text-accent"> *</span>}
       </span>
       {type === "textarea" ? (
         <textarea
@@ -186,7 +201,7 @@ function Field({
 function Select({ label, name, options }: { label: string; name: string; options: string[] }) {
   return (
     <label className="block">
-      <span className="block text-[12.5px] font-medium uppercase tracking-[0.12em] text-white/60">
+      <span className="block text-[12.5px] font-medium uppercase tracking-[0.12em] text-ink/60">
         {label}
       </span>
       <select
@@ -194,11 +209,11 @@ function Select({ label, name, options }: { label: string; name: string; options
         defaultValue=""
         className={cn(inputClass, "mt-2 appearance-none")}
       >
-        <option value="" disabled className="bg-ink-900">
+        <option value="" disabled className="bg-surface text-ink">
           Choose…
         </option>
         {options.map((o) => (
-          <option key={o} value={o} className="bg-ink-900">
+          <option key={o} value={o} className="bg-surface text-ink">
             {o}
           </option>
         ))}

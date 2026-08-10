@@ -19,7 +19,7 @@ export function FAQ() {
           title="Common questions before we get on a call."
           align="center"
         />
-        <div className="mx-auto mt-12 max-w-3xl divide-y divide-white/[0.06] rounded-2xl border border-white/[0.06] bg-white/[0.02]">
+        <div className="mx-auto mt-12 max-w-3xl divide-y divide-ink/[0.06] rounded-2xl border border-ink/[0.06] bg-ink/[0.02]">
           {faqs.map((f, i) => {
             const isOpen = open === i;
             return (
@@ -30,13 +30,13 @@ export function FAQ() {
                   aria-expanded={isOpen}
                   aria-controls={`faq-panel-${i}`}
                 >
-                  <span className="text-[15px] font-medium text-white md:text-[16px]">
+                  <span className="text-[15px] font-medium text-ink md:text-[16px]">
                     {f.question}
                   </span>
                   <Plus
                     className={cn(
-                      "size-4 shrink-0 text-white/60 transition-transform duration-300",
-                      isOpen && "rotate-45 text-brand-300"
+                      "size-4 shrink-0 text-ink/60 transition-transform duration-300",
+                      isOpen && "rotate-45 text-accent"
                     )}
                   />
                 </button>
@@ -50,7 +50,7 @@ export function FAQ() {
                       transition={{ duration: 0.25, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="px-5 pb-5 text-[14.5px] leading-relaxed text-white/70 md:px-6 md:pb-6">
+                      <p className="px-5 pb-5 text-[14.5px] leading-relaxed text-ink/70 md:px-6 md:pb-6">
                         {f.answer}
                       </p>
                     </motion.div>

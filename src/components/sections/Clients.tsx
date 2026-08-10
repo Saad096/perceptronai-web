@@ -13,12 +13,12 @@ export function Clients() {
     <section className="relative py-14">
       <Container>
         <Reveal>
-          <p className="text-center text-[11px] font-semibold uppercase tracking-[0.22em] text-white/45">
+          <p className="text-center text-[11px] font-semibold uppercase tracking-[0.22em] text-ink/45">
             Trusted by teams building real things
           </p>
         </Reveal>
 
-        <div className="relative mt-7 overflow-hidden rounded-2xl border border-white/[0.05] bg-white/[0.015]">
+        <div className="relative mt-7 overflow-hidden rounded-2xl border border-ink/[0.05] bg-ink/[0.015]">
           <div className="marquee-mask py-6">
             <div className="flex w-max items-center gap-12 whitespace-nowrap animate-marquee md:gap-16">
               {lane.map((c, i) => (
@@ -33,7 +33,7 @@ export function Clients() {
                       alt={`${c.name} logo`}
                       fill
                       sizes="160px"
-                      className="object-contain opacity-70 saturate-0 transition-all duration-300 group-hover:opacity-100 group-hover:saturate-100"
+                      className="rounded-lg object-contain opacity-70 saturate-0 mix-blend-multiply transition-all duration-300 group-hover:opacity-100 group-hover:saturate-100 dark:mix-blend-normal"
                     />
                   </div>
                 </div>

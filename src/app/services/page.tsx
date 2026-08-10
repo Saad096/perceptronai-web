@@ -39,7 +39,7 @@ export default function ServicesPage() {
           <SectionHeading
             eyebrow="Services"
             title="Engineering-led AI services for teams that need production, not prototypes."
-            description="Modular engagements — pick a service or compose several. Every engagement ends with code you own, runbooks you can act on, and a roadmap for what's next."
+            description="Pick one service or compose several. Every engagement ends with code you own, runbooks you can act on, and a roadmap for what's next."
           />
         </Container>
       </section>

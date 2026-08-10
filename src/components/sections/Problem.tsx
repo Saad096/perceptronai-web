@@ -33,19 +33,19 @@ export function Problem() {
         <SectionHeading
           eyebrow="The Problem"
           title="Most AI projects fail after the demo. Here's why."
-          description="It's rarely the model. It's the lack of architecture, evaluation, observability, deployment planning and business alignment. QentrixAI focuses on the full path — not just the shiny part."
+          description="It's rarely the model. It's the missing architecture, evaluation, observability, and deployment planning. QentrixAI focuses on the full path, not just the shiny part."
           align="center"
         />
         <div className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2">
           {failures.map((f, i) => (
             <Reveal key={f.title} delay={i * 0.05}>
-              <div className="flex h-full gap-4 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5">
-                <div className="grid size-10 shrink-0 place-items-center rounded-xl border border-red-400/20 bg-red-400/10 text-red-300">
+              <div className="flex h-full gap-4 rounded-2xl border border-ink/[0.06] bg-ink/[0.02] p-5">
+                <div className="grid size-10 shrink-0 place-items-center rounded-xl border border-red-400/20 bg-red-400/10 text-red-600 dark:text-red-300">
                   <f.icon className="size-4" />
                 </div>
                 <div>
-                  <h3 className="font-display text-[16px] font-semibold text-white">{f.title}</h3>
-                  <p className="mt-1 text-[14px] text-white/65">{f.body}</p>
+                  <h3 className="font-display text-[16px] font-semibold text-ink">{f.title}</h3>
+                  <p className="mt-1 text-[14px] text-ink/65">{f.body}</p>
                 </div>
               </div>
             </Reveal>

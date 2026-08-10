@@ -9,7 +9,6 @@ import { Problem } from "@/components/sections/Problem";
 import { WhyUs } from "@/components/sections/WhyUs";
 import { Process } from "@/components/sections/Process";
 import { CaseStudiesPreview } from "@/components/sections/CaseStudiesPreview";
-import { TeamPreview } from "@/components/sections/TeamPreview";
 import { TechStack } from "@/components/sections/TechStack";
 import { BlogPreview } from "@/components/sections/BlogPreview";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -35,7 +34,6 @@ export default function HomePage() {
       <WhyUs />
       <Process />
       <CaseStudiesPreview />
-      <TeamPreview />
       <TechStack />
       <BlogPreview />
       <Testimonials />

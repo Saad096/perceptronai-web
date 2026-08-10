@@ -39,6 +39,6 @@ export const faqs: Faq[] = [
   {
     question: "Do you sign NDAs?",
     answer:
-      "Yes — happy to sign a mutual NDA before the first technical conversation. Just include it in your message or ask on the call.",
+      "Yes. We are happy to sign a mutual NDA before the first technical conversation. Just include it in your message or ask on the call.",
   },
 ];

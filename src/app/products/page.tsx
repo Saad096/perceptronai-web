@@ -19,7 +19,7 @@ export default function ProductsPage() {
           <SectionHeading
             eyebrow="Products"
             title="The QentrixAI product studio."
-            description="Internal frameworks, MVPs, and shipped client systems. Each card opens a full breakdown — problem, solution, stack and roadmap."
+            description="Internal frameworks, MVPs, and shipped client systems. Each card opens a full breakdown of problem, solution, stack, and roadmap."
           />
         </Container>
       </section>

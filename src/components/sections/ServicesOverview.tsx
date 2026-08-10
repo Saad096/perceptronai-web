@@ -14,7 +14,7 @@ export function ServicesOverview({ limit = 6 }: { limit?: number }) {
           <SectionHeading
             eyebrow="Services"
             title="Production AI engineering, from strategy to deployment."
-            description="GenAI, Agentic AI, RAG, Voice AI, Edge AI, Cloud, MLOps and Product Engineering — modular engagements that fit your stage."
+            description="GenAI, agentic AI, RAG, voice AI, edge AI, cloud, and MLOps. Modular engagements that fit your stage."
           />
           <Button href="/services" variant="outline" size="sm">
             All services <ArrowRight className="size-4" />

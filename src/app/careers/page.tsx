@@ -78,15 +78,15 @@ export default function CareersPage() {
             {principles.map((p) => (
               <div
                 key={p.title}
-                className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6"
+                className="rounded-2xl border border-ink/[0.06] bg-ink/[0.02] p-6"
               >
-                <div className="inline-flex size-9 items-center justify-center rounded-lg border border-brand-400/30 bg-brand-500/10 text-brand-200">
+                <div className="inline-flex size-9 items-center justify-center rounded-lg border border-brand-400/30 bg-brand-500/10 text-accent">
                   <Sparkles className="size-4" />
                 </div>
-                <h3 className="mt-4 font-display text-[17px] font-semibold text-white">
+                <h3 className="mt-4 font-display text-[17px] font-semibold text-ink">
                   {p.title}
                 </h3>
-                <p className="mt-2 text-[14px] leading-relaxed text-white/65">{p.body}</p>
+                <p className="mt-2 text-[14px] leading-relaxed text-ink/65">{p.body}</p>
               </div>
             ))}
           </div>
@@ -95,19 +95,19 @@ export default function CareersPage() {
 
       <section className="pb-20">
         <Container>
-          <h2 className="font-display text-2xl font-semibold tracking-tight text-white md:text-3xl">
+          <h2 className="font-display text-2xl font-semibold tracking-tight text-ink md:text-3xl">
             Open roles
           </h2>
-          <div className="mt-6 divide-y divide-white/[0.06] rounded-2xl border border-white/[0.06] bg-white/[0.02]">
+          <div className="mt-6 divide-y divide-ink/[0.06] rounded-2xl border border-ink/[0.06] bg-ink/[0.02]">
             {openRoles.map((r) => (
               <div
                 key={r.title}
                 className="flex flex-col items-start gap-3 p-6 md:flex-row md:items-center md:justify-between"
               >
                 <div>
-                  <h3 className="font-display text-[17px] font-semibold text-white">{r.title}</h3>
-                  <p className="mt-1 text-[13.5px] text-white/55">{r.location}</p>
-                  <p className="mt-2 max-w-2xl text-[14px] text-white/70">{r.summary}</p>
+                  <h3 className="font-display text-[17px] font-semibold text-ink">{r.title}</h3>
+                  <p className="mt-1 text-[13.5px] text-ink/55">{r.location}</p>
+                  <p className="mt-2 max-w-2xl text-[14px] text-ink/70">{r.summary}</p>
                 </div>
                 <Button
                   href={`mailto:${publicEnv.profile.email}?subject=Career: ${encodeURIComponent(r.title)}`}
@@ -118,9 +118,9 @@ export default function CareersPage() {
                 </Button>
               </div>
             ))}
-            <div className="p-6 text-[13.5px] text-white/55">
+            <div className="p-6 text-[13.5px] text-ink/55">
               Don't see the right fit? Email{" "}
-              <a href={`mailto:${publicEnv.profile.email}`} className="text-brand-300 hover:underline">
+              <a href={`mailto:${publicEnv.profile.email}`} className="text-accent hover:underline">
                 {publicEnv.profile.email}
               </a>{" "}
               with what you do best and a few links.

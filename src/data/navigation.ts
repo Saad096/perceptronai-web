@@ -1,39 +1,42 @@
+/**
+ * 2026-07 revamp: nav labels rewritten in human, sentence-case brand voice.
+ * Primary nav trimmed to five items so it fits the floating pill header.
+ * Team and Contact remain reachable via the footer and the "Work with us"
+ * CTA button in the header.
+ */
 export type NavItem = { label: string; href: string };
 
 export const primaryNav: NavItem[] = [
-  { label: "Services", href: "/services" },
+  { label: "What we build", href: "/services" },
   { label: "Products", href: "/products" },
-  { label: "Case Studies", href: "/case-studies" },
-  { label: "About", href: "/about" },
-  { label: "Team", href: "/team" },
-  { label: "Blog", href: "/blogs" },
-  { label: "Contact", href: "/contact" },
+  { label: "Case studies", href: "/case-studies" },
+  { label: "Our story", href: "/about" },
+  { label: "Insights", href: "/blogs" },
 ];
 
 export const footerSections: { title: string; links: NavItem[] }[] = [
   {
     title: "Company",
     links: [
-      { label: "About", href: "/about" },
-      { label: "Team", href: "/team" },
+      { label: "Our story", href: "/about" },
       { label: "Careers", href: "/careers" },
-      { label: "Case Studies", href: "/case-studies" },
+      { label: "Case studies", href: "/case-studies" },
     ],
   },
   {
-    title: "Solutions",
+    title: "Work",
     links: [
-      { label: "Services", href: "/services" },
+      { label: "What we build", href: "/services" },
       { label: "Products", href: "/products" },
-      { label: "Blog", href: "/blogs" },
-      { label: "Contact", href: "/contact" },
+      { label: "Insights", href: "/blogs" },
+      { label: "Work with us", href: "/contact" },
     ],
   },
   {
     title: "Legal",
     links: [
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms of Service", href: "/terms" },
+      { label: "Privacy policy", href: "/privacy" },
+      { label: "Terms of service", href: "/terms" },
     ],
   },
 ];

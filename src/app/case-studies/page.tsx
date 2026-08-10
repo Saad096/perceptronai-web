@@ -10,7 +10,7 @@ export const metadata = buildMetadata({
   title: "Case Studies",
   path: "/case-studies",
   description:
-    "Selected work from QentrixAI — multi-agent platforms, RAG systems, voice AI, meeting intelligence and computer vision. Sanitised summaries with client names available under NDA.",
+    "Selected work from QentrixAI: multi-agent platforms, RAG systems, voice AI, meeting intelligence, and computer vision. Sanitised summaries with client names available under NDA.",
 });
 
 export default function CaseStudiesPage() {
@@ -20,8 +20,8 @@ export default function CaseStudiesPage() {
         <Container>
           <SectionHeading
             eyebrow="Case studies"
-            title="What we've shipped — in plain language."
-            description="Each card describes the problem, the approach we took, and the measurable outcome. We use 'experience includes' and 'delivered or contributed to' deliberately — these are real engagements, anonymised."
+            title="What we've shipped, in plain language."
+            description="Each card describes the problem, the approach we took, and the measurable outcome. We say 'delivered or contributed to' deliberately. These are real engagements, anonymised."
           />
         </Container>
       </section>

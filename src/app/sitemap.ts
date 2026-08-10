@@ -11,11 +11,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services",
     "/products",
     "/about",
-    "/team",
     "/case-studies",
     "/blogs",
     "/careers",
     "/contact",
+    "/book",
     "/privacy",
     "/terms",
   ].map((path) => ({

@@ -43,7 +43,7 @@ export const products: Product[] = [
   {
     slug: "minutely",
     name: "Minutely",
-    tagline: "AI meeting intelligence — transcripts, MOMs, action items, decisions.",
+    tagline: "AI meeting intelligence: transcripts, MOMs, action items, decisions.",
     category: "Meeting Intelligence Platform",
     status: "Beta",
     cover: "/products/minutely-1.png",
@@ -57,7 +57,7 @@ export const products: Product[] = [
     problem:
       "Meetings produce decisions, action items and follow-ups that get lost in fragmented notes, recordings and side-chats. Teams either re-do the work or skip the follow-through.",
     solution:
-      "Minutely joins your meetings, transcribes them with speaker labels, and produces structured minutes-of-meeting: decisions, action items, owners and deadlines — with an approval flow before publishing.",
+      "Minutely joins your meetings, transcribes them with speaker labels, and produces structured minutes-of-meeting: decisions, action items, owners and deadlines, with an approval flow before publishing.",
     novelty:
       "Most tools stop at a raw transcript or a generic summary. Minutely adds an approval workflow, an evaluation layer for ASR/TTS accuracy, and integrates outputs back into your task tracker.",
     features: [
@@ -105,7 +105,7 @@ export const products: Product[] = [
     solution:
       "NeuroMesh is our internal framework on top of LangGraph for designing stateful, traceable agent teams. It standardises tool use, retries, human-in-the-loop checkpoints, and observability so we ship agents that survive production traffic.",
     novelty:
-      "Opinionated around evaluation and traceability. Every agent run is a first-class object with versioned prompts, tool calls, and outcomes — replayable end-to-end.",
+      "Opinionated around evaluation and traceability. Every agent run is a first-class object with versioned prompts, tool calls, and outcomes, replayable end to end.",
     features: [
       "Stateful agent graphs with checkpointing",
       "Tool registry with typed input/output schemas",
@@ -128,7 +128,7 @@ export const products: Product[] = [
   {
     slug: "salespire",
     name: "SalesPire",
-    tagline: "AI sales co-pilot — lead enrichment, outreach, and pipeline intelligence.",
+    tagline: "AI sales co-pilot: lead enrichment, outreach, and pipeline intelligence.",
     category: "Sales Automation",
     status: "MVP",
     cover: "/products/salespire-1.png",
@@ -143,7 +143,7 @@ export const products: Product[] = [
     solution:
       "SalesPire combines lead enrichment, AI-written contextual outreach, and a pipeline intelligence layer that surfaces stuck deals, missing actions, and next-best-step recommendations.",
     novelty:
-      "Quality-first outreach. Every AI-written message is grounded in the lead's public footprint and the rep's voice — with a human approval step before send.",
+      "Quality-first outreach. Every AI-written message is grounded in the lead's public footprint and the rep's voice, with a human approval step before send.",
     features: [
       "Lead enrichment from public sources",
       "AI-written outreach grounded in lead context",
@@ -175,11 +175,11 @@ export const products: Product[] = [
       "/products/ala-4.png",
     ],
     problem:
-      "Religious, cultural and ethical questions are some of the worst use-cases for off-the-shelf chatbots — they hallucinate, flatten nuance, and over-confidently pick a single tradition's voice. Users get answers that are either wrong, disrespectful, or dangerously oversimplified.",
+      "Religious, cultural and ethical questions are some of the worst use cases for off-the-shelf chatbots. They hallucinate, flatten nuance, and over-confidently pick a single tradition's voice. Users get answers that are either wrong, disrespectful, or dangerously oversimplified.",
     solution:
-      "ALA gives you grounded, factual answers first — then adds faith-based or secular reflections only when you ask. Your worldview, your choice, your depth. Every response is anchored to a curated source corpus and clearly marks when a question falls outside its scope.",
+      "ALA gives you grounded, factual answers first, then adds faith-based or secular reflections only when you ask. Your worldview, your choice, your depth. Every response is anchored to a curated source corpus and clearly marks when a question falls outside its scope.",
     novelty:
-      "Built for trust, not persuasion. Three things make ALA different: (1) a retrieval layer scoped per tradition + region so answers never blend voices, (2) a two-stage response — neutral facts first, optional reflection on request, and (3) measurable trust metrics with transparent sourcing surfaced in the UI.",
+      "Built for trust, not persuasion. Three things make ALA different: (1) a retrieval layer scoped per tradition + region so answers never blend voices, (2) a two-stage response with neutral facts first and optional reflection on request, and (3) measurable trust metrics with transparent sourcing surfaced in the UI.",
     features: [
       "Neutral facts first, optional reflective layer on request",
       "Multi-tradition retrieval with per-source provenance",
@@ -213,18 +213,18 @@ export const products: Product[] = [
   {
     slug: "multiagent-chatbot",
     name: "MultiAgent Chatbot",
-    tagline: "Multimodal personal companion — Study, Health, Finance, Growth.",
+    tagline: "Multimodal personal companion: Study, Health, Finance, Growth.",
     category: "Consumer Multi-Agent Platform",
     status: "Concept",
     cover: "",
     coverMode: "dark",
     gallery: [],
     problem:
-      "Most personal AI tools are single-purpose chatbots. Users end up juggling tabs for study help, fitness, finance, and personal growth — and none of the contexts talk to each other.",
+      "Most personal AI tools are single-purpose chatbots. Users end up juggling tabs for study help, fitness, finance, and personal growth, and none of the contexts talk to each other.",
     solution:
-      "A single multimodal platform with specialised agents — Study Helper, Health Coach, Financial Advisor, Growth Partner — sharing a unified user context so advice across life domains stays coherent.",
+      "A single multimodal platform with specialised agents (Study Helper, Health Coach, Financial Advisor, Growth Partner) sharing a unified user context so advice across life domains stays coherent.",
     novelty:
-      "A shared long-term memory across specialised agents. Health context informs finance advice, study load informs the health coach's pacing — without sharing user data outside the platform.",
+      "A shared long-term memory across specialised agents. Health context informs finance advice, study load informs the health coach's pacing, without sharing user data outside the platform.",
     features: [
       "Specialised agents per life domain",
       "Shared long-term user memory",
@@ -254,7 +254,7 @@ export const products: Product[] = [
     solution:
       "A retrieval platform combining hybrid search (BM25 + dense), structured extraction, citation-grounded answers, and per-document/per-role access controls.",
     novelty:
-      "Built with a measurable retrieval eval suite from day one — every change ships with a regression report on precision, recall, and grounding rate.",
+      "Built with a measurable retrieval eval suite from day one. Every change ships with a regression report on precision, recall, and grounding rate.",
     features: [
       "Hybrid retrieval (BM25 + vector + re-rank)",
       "Structured extraction from PDFs, scans, contracts",
@@ -296,7 +296,7 @@ export const products: Product[] = [
     problem:
       "Legacy IVRs frustrate callers and dump everyone into long queues. Live agents repeat the same handful of resolutions all day.",
     solution:
-      "A voice AI layer that listens, understands intent, answers from your knowledge base, and only escalates when needed — with full call analytics and CRM sync.",
+      "A voice AI layer that listens, understands intent, answers from your knowledge base, and only escalates when needed, with full call analytics and CRM sync.",
     novelty:
       "Real-time turn-taking tuned for noisy phone lines, with strict guardrails: if confidence drops, the call is routed to a human, never a hallucinated answer.",
     features: [
@@ -331,14 +331,14 @@ export const products: Product[] = [
   {
     slug: "voicebot",
     name: "Realtime Voice Bot",
-    tagline: "Real-time conversational voice assistant — streaming ASR, instant replies.",
+    tagline: "Real-time conversational voice assistant: streaming ASR, instant replies.",
     category: "Conversational Voice AI",
     status: "MVP",
     cover: "/products/voicebot-1.jpeg",
     coverMode: "image",
     gallery: ["/products/voicebot-1.jpeg", "/products/voicebot-2.jpeg"],
     problem:
-      "Most voice assistants either feel laggy and robotic or hallucinate confidently. Teams building voice-first features need a real-time conversational layer that listens, thinks, and speaks back fast enough to feel natural — without sacrificing factual grounding.",
+      "Most voice assistants either feel laggy and robotic or hallucinate confidently. Teams building voice-first features need a real-time conversational layer that listens, thinks, and speaks back fast enough to feel natural, without sacrificing factual grounding.",
     solution:
       "A streaming voice-to-voice bot that captures audio, transcribes it live, reasons with an LLM, and speaks back with low-latency TTS. Conversations stay coherent across turns, and every interaction is logged with audio + transcript for review.",
     novelty:
@@ -376,7 +376,7 @@ export const products: Product[] = [
   {
     slug: "fintelia",
     name: "Fintelia",
-    tagline: "AI-powered financial intelligence — calculators, planning, and market insight in one workspace.",
+    tagline: "Financial intelligence in one workspace: calculators, planning, and market insight.",
     category: "FinTech / InsureTech AI",
     status: "Beta",
     cover: "/products/fintelia-calculator.png",
@@ -387,11 +387,11 @@ export const products: Product[] = [
       "/products/fintelia-market-intelligence.png",
     ],
     problem:
-      "Financial decisions — deductible choices, investment plans, retirement, market timing — depend on data scattered across portals, PDFs and news. Most tools solve one slice and leave the user to stitch the rest. Generic AI chatbots get the math wrong and miss compliance constraints.",
+      "Financial decisions like deductible choices, investment plans, retirement, and market timing depend on data scattered across portals, PDFs and news. Most tools solve one slice and leave the user to stitch the rest. Generic AI chatbots get the math wrong and miss compliance constraints.",
     solution:
       "Fintelia is a single AI-driven workspace with three connected modules: Calculators (deductible optimizer, ROI, tax estimator, claim decisioning), Investment Planner (goal-based plans with risk profile), and Market Intelligence (curated personal-finance feed with sentiment and daily digest).",
     novelty:
-      "Modules share a user-context layer — a recommendation in Calculators reflects the goals set in Planner, and the Market feed surfaces only signals relevant to the user's portfolio. Every numerical answer cites its calculation path and assumptions, so users can audit the result, not just trust it.",
+      "Modules share a user-context layer. A recommendation in Calculators reflects the goals set in Planner, and the Market feed surfaces only signals relevant to the user's portfolio. Every numerical answer cites its calculation path and assumptions, so users can audit the result, not just trust it.",
     features: [
       "Deductible optimizer with scenario analysis",
       "ROI, tax, and claim-decision calculators",

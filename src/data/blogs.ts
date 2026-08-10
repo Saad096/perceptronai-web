@@ -12,6 +12,57 @@ export type Blog = {
 
 export const blogs: Blog[] = [
   {
+    slug: "mcp-how-agents-reach-your-systems",
+    title: "MCP is now how agents reach your systems",
+    category: "MCP",
+    excerpt:
+      "The Model Context Protocol went from Anthropic side project to Linux Foundation standard with over 10,000 public servers. What the new stateless spec and enterprise auth mean for your stack.",
+    date: "2026-07-15",
+    readingTime: "8 min read",
+    cover: "",
+    author: "Saad Alam",
+    content: [
+      "In December 2025 Anthropic donated MCP to the Agentic AI Foundation under the Linux Foundation, and adoption followed fast. There are now more than 10,000 public MCP servers, the SDKs see close to 100 million downloads a month, and around 4 in 10 software organisations report MCP servers in production.",
+      "The July 2026 specification is the one that matters for enterprises. The protocol core is now stateless, so gateways, load balancers and rate limiters can route MCP traffic like any other API traffic. Tasks, Extensions and a formal deprecation policy landed alongside it.",
+      "Enterprise-Managed Authorization is the sleeper feature. Access to MCP servers now flows through your identity provider, the same way SSO gates your SaaS. Asana, Atlassian, Linear, Figma and Supabase already support it.",
+      "Our advice to clients: treat every MCP server you expose as production API surface. That means authentication through your IdP, a tool-safety review before anything ships, and the same observability you would demand from a public endpoint. We wire MCP servers into client stacks with exactly that posture.",
+    ],
+  },
+  {
+    slug: "context-engineering-beat-prompting",
+    title: "Context engineering beat prompt engineering",
+    category: "Agentic AI",
+    excerpt:
+      "The defining AI skill of 2026 is not writing clever prompts. It is architecting what the model sees: memory, retrieval, tools, and state, delivered at the right moment.",
+    date: "2026-07-02",
+    readingTime: "7 min read",
+    cover: "",
+    author: "Saad Alam",
+    content: [
+      "Prompt engineering optimised a single message. Context engineering architects the entire information environment an agent operates in: what it remembers, what it retrieves, which tools it sees, and what state it carries between steps.",
+      "The practical levers are unglamorous. Compress aggressively so long sessions do not drown the model in stale history. Scope tool lists per task instead of exposing everything. Separate durable memory from working context, and be deliberate about what earns a place in each.",
+      "The harness now matters as much as the model. Permissions, evaluation, persistent state and continuous improvement live outside the model call, and that surrounding system is where production agents win or lose.",
+      "A test we apply on every engagement: take a failing agent transcript and ask what the model could actually see at the failing step. In most cases the model was fine and the context was wrong. Fix the information diet before reaching for a bigger model.",
+    ],
+  },
+  {
+    slug: "computer-use-agents-narrow-work",
+    title: "Computer-use agents are ready for narrow work",
+    category: "Agentic AI",
+    excerpt:
+      "Agents that drive a real screen now clear 85 percent on OS-level benchmarks. That is good enough for the ugly middle of enterprise work, if you scope them honestly.",
+    date: "2026-06-18",
+    readingTime: "6 min read",
+    cover: "",
+    author: "Saad Alam",
+    content: [
+      "Computer-use agents click, type and read screens the way a person does. The leading platforms now score above 85 percent on OSWorld-style benchmarks, up from roughly half that two years ago.",
+      "The honest use case is the ugly middle of enterprise work: legacy desktop tools, portals without APIs, and vendor systems you will never be allowed to integrate with properly. If an API exists, use the API. The screen is the integration of last resort, and it is finally a workable one.",
+      "Scope is everything. A computer-use agent doing one rehearsed workflow with a defined start, a defined finish and a human checkpoint before anything irreversible is a dependable worker. The same agent given a vague goal and an open desktop is an incident report.",
+      "We deploy them the way we deploy any agent: recorded runs, evals on task completion, and containment metrics from day one. The screen recording becomes your trace. If you cannot replay why the agent clicked what it clicked, you are not ready to scale it.",
+    ],
+  },
+  {
     slug: "production-ready-ai-not-demos",
     title: "Why Businesses Need Production-Ready AI, Not Just Demos",
     category: "AI Strategy",
@@ -25,7 +76,7 @@ export const blogs: Blog[] = [
       "Most failed AI projects don't fail because the model is bad. They fail because no one designed the path from a notebook to a service that survives Monday morning traffic.",
       "Production-ready means four things: a clean data path with monitoring, evaluation that runs on every change, observability that catches drift, and a rollback plan that is rehearsed, not theoretical.",
       "If your team can answer 'how do we know quality dropped 4% last week' in less than five minutes, you're production-ready. Otherwise you're shipping vibes.",
-      "At QentrixAI we treat eval harnesses, Langfuse traces, and CI/CD as part of the deliverable — not an afterthought. The teams who succeed with AI invest in the boring layer before chasing the shiny one.",
+      "At QentrixAI we treat eval harnesses, Langfuse traces, and CI/CD as part of the deliverable, not an afterthought. The teams who succeed with AI invest in the boring layer before chasing the shiny one.",
     ],
   },
   {
@@ -39,7 +90,7 @@ export const blogs: Blog[] = [
     cover: "",
     author: "Saad Alam",
     content: [
-      "A useful definition of an agent: a system that can plan, pick tools, take actions, observe results, and decide what to do next — repeatedly, with state.",
+      "A useful definition of an agent: a system that can plan, pick tools, take actions, observe results, and decide what to do next, repeatedly, with state.",
       "Where it works today: structured operational workflows with clear success signals. Lead routing, ticket triage, recruitment screening, expense categorisation.",
       "Where it still struggles: open-ended creative or strategic work without an authoritative truth source. Don't put an agent in charge of brand voice; put it in charge of work that has a right answer.",
       "Design principles we use at QentrixAI: typed tools, retries with backoff, human-in-the-loop checkpoints on irreversible actions, and end-to-end tracing on every run.",
@@ -47,7 +98,7 @@ export const blogs: Blog[] = [
   },
   {
     slug: "rag-enterprise-knowledge-search",
-    title: "RAG for Enterprise Knowledge Search — What Actually Works",
+    title: "RAG for enterprise knowledge search: what actually works",
     category: "RAG",
     excerpt:
       "Vector databases are not magic. Real enterprise RAG needs hybrid retrieval, re-rankers, and a measurable eval suite. A field guide from real deployments.",
@@ -59,7 +110,7 @@ export const blogs: Blog[] = [
       "If your RAG system can't answer 'how good is retrieval today vs last week' with numbers, you don't have a system, you have a pipeline.",
       "Hybrid search (BM25 + dense + re-rank) consistently outperforms pure vector search on enterprise content. The bias toward exact-token matching matters in legal, finance and engineering docs.",
       "Chunking is underrated. Naïve fixed-window chunking destroys semantic units. Use semantic chunking, retain heading context, and store paragraph + heading metadata.",
-      "Build an eval set on day one — 100 question/answer/citation triples is enough to start. Every retrieval change ships with a regression report.",
+      "Build an eval set on day one. 100 question/answer/citation triples is enough to start. Every retrieval change ships with a regression report.",
     ],
   },
   {
@@ -74,7 +125,7 @@ export const blogs: Blog[] = [
     author: "Saad Alam",
     content: [
       "The unlock for voice AI in 2026 was streaming ASR + streaming TTS + interruption handling. Without those three together, conversations feel robotic.",
-      "Phone-line audio is messy: codec compression, packet loss, noise. Build for that — train and eval on phone-grade audio, not studio recordings.",
+      "Phone-line audio is messy: codec compression, packet loss, noise. Build for that: train and eval on phone-grade audio, not studio recordings.",
       "Escalation policy beats accuracy. A voice agent that confidently says 'let me transfer you to a human' is better than one that hallucinates with confidence.",
       "Measure containment rate (calls resolved without human transfer), CSAT, and per-call cost. AI should beat IVR on all three, not just one.",
     ],
@@ -91,7 +142,7 @@ export const blogs: Blog[] = [
     author: "Saad Alam",
     content: [
       "Classic MLOps assumed batch training and offline eval. LLM workloads are online, prompt-driven, and dependent on third-party model APIs.",
-      "What changes: every prompt is a versioned artifact. Every tool call is an observable span. Every output gets an eval — automated where possible, human-graded where it matters.",
+      "What changes: every prompt is a versioned artifact. Every tool call is an observable span. Every output gets an eval, automated where possible and human-graded where it matters.",
       "Build a token-cost dashboard early. The teams that get burned are the ones who discover token spend two weeks after going viral, not before.",
       "Pair LLM observability (Langfuse / LangSmith) with system observability (Grafana / Prometheus). Both stacks, side by side, is the configuration that holds up under real load.",
     ],
@@ -101,7 +152,7 @@ export const blogs: Blog[] = [
     title: "How to Build an AI MVP Safely and Efficiently",
     category: "Product",
     excerpt:
-      "A 6–10 week recipe for going from idea to a deployable AI MVP — without the usual sprawl, scope creep, and demo-only deliverables.",
+      "A 6–10 week recipe for going from idea to a deployable AI MVP without the usual sprawl, scope creep, and demo-only deliverables.",
     date: "2026-02-14",
     readingTime: "7 min read",
     cover: "",
@@ -132,7 +183,7 @@ export const blogs: Blog[] = [
   },
   {
     slug: "edge-ai-when-cloud-isnt-enough",
-    title: "Edge AI — When the Cloud Isn't Fast or Private Enough",
+    title: "Edge AI: when the cloud isn't fast or private enough",
     category: "Edge AI",
     excerpt:
       "Latency, privacy, and offline use-cases push models out of the cloud. A practical guide to quantization, on-device inference, and hybrid routing.",

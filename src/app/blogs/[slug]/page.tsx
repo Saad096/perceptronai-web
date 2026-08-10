@@ -40,30 +40,30 @@ export default async function BlogDetail({ params }: { params: Promise<Params> }
         <Container className="max-w-3xl">
           <Link
             href="/blogs"
-            className="inline-flex items-center gap-2 text-[13px] text-white/60 hover:text-white"
+            className="inline-flex items-center gap-2 text-[13px] text-ink/60 hover:text-ink"
           >
             <ArrowLeft className="size-4" />
             All articles
           </Link>
 
-          <div className="mt-6 flex items-center gap-3 text-[12.5px] text-white/55">
-            <span className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 font-medium uppercase tracking-[0.12em]">
+          <div className="mt-6 flex items-center gap-3 text-[12.5px] text-ink/55">
+            <span className="rounded-full border border-ink/10 bg-ink/[0.04] px-2.5 py-1 font-medium uppercase tracking-[0.12em]">
               {blog.category}
             </span>
             <time dateTime={blog.date}>{formatDate(blog.date)}</time>
-            <span className="size-1 rounded-full bg-white/30" />
+            <span className="size-1 rounded-full bg-ink/30" />
             <span className="inline-flex items-center gap-1">
               <Clock className="size-3" /> {blog.readingTime}
             </span>
           </div>
 
-          <h1 className="mt-4 font-display text-4xl font-semibold leading-tight tracking-tight text-white md:text-5xl">
+          <h1 className="mt-4 font-display text-4xl font-semibold leading-tight tracking-tight text-ink md:text-5xl">
             {blog.title}
           </h1>
-          <p className="mt-4 text-[17px] leading-relaxed text-white/70">{blog.excerpt}</p>
-          <p className="mt-6 text-[13px] text-white/55">By {blog.author}</p>
+          <p className="mt-4 text-[17px] leading-relaxed text-ink/70">{blog.excerpt}</p>
+          <p className="mt-6 text-[13px] text-ink/55">By {blog.author}</p>
 
-          <div className="relative mt-10 overflow-hidden rounded-2xl border border-white/[0.08] bg-ink-900">
+          <div className="relative mt-10 overflow-hidden rounded-2xl border border-ink/[0.08] bg-surface">
             {blog.cover && blog.cover.trim().length > 0 ? (
               <Image
                 src={blog.cover}
@@ -77,13 +77,13 @@ export default async function BlogDetail({ params }: { params: Promise<Params> }
                 className="relative aspect-[16/9] w-full"
                 style={{
                   background:
-                    "radial-gradient(circle at 25% 20%, rgba(95,135,255,0.45), transparent 55%), radial-gradient(circle at 75% 80%, rgba(139,92,246,0.4), transparent 55%), linear-gradient(135deg,#0a0f1f 0%, #04060d 60%, #050816 100%)",
+                    "radial-gradient(circle at 25% 20%, rgba(110,96,234,0.45), transparent 55%), radial-gradient(circle at 75% 80%, rgba(122,112,240,0.4), transparent 55%), linear-gradient(135deg,#0a0f1f 0%, #04060d 60%, #050816 100%)",
                 }}
               >
                 <div className="absolute inset-0 bg-grid opacity-30" aria-hidden />
                 <div className="absolute inset-0 flex items-end p-8">
                   <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-brand-200/85">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-accent/85">
                       {blog.category}
                     </p>
                     <p className="mt-2 font-display text-3xl font-semibold leading-tight tracking-tight text-white md:text-4xl">
@@ -97,7 +97,7 @@ export default async function BlogDetail({ params }: { params: Promise<Params> }
 
           <div className="prose prose-invert mt-10 max-w-none">
             {blog.content.map((para, i) => (
-              <p key={i} className="text-[16px] leading-relaxed text-white/80">
+              <p key={i} className="text-[16px] leading-relaxed text-ink/80">
                 {para}
               </p>
             ))}
@@ -108,7 +108,7 @@ export default async function BlogDetail({ params }: { params: Promise<Params> }
       <section className="section">
         <Container>
           <div className="flex items-end justify-between gap-6">
-            <h2 className="font-display text-2xl font-semibold tracking-tight text-white md:text-3xl">
+            <h2 className="font-display text-2xl font-semibold tracking-tight text-ink md:text-3xl">
               Keep reading
             </h2>
             <Button href="/blogs" variant="outline" size="sm">
@@ -120,15 +120,15 @@ export default async function BlogDetail({ params }: { params: Promise<Params> }
               <Link
                 key={b.slug}
                 href={`/blogs/${b.slug}`}
-                className="group flex flex-col gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 transition-colors hover:bg-white/[0.04]"
+                className="group flex flex-col gap-3 rounded-2xl border border-ink/[0.06] bg-ink/[0.02] p-5 transition-colors hover:bg-ink/[0.04]"
               >
-                <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-200">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
                   {b.category}
                 </span>
-                <h3 className="font-display text-[16px] font-semibold tracking-tight text-white">
+                <h3 className="font-display text-[16px] font-semibold tracking-tight text-ink">
                   {b.title}
                 </h3>
-                <p className="text-[13.5px] text-white/65">{b.excerpt}</p>
+                <p className="text-[13.5px] text-ink/65">{b.excerpt}</p>
               </Link>
             ))}
           </div>

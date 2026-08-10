@@ -11,7 +11,7 @@ import {
 export type SocialLink = {
   name: string;
   url: string;
-  icon: LucideIcon | "x" | "upwork" | "fiverr" | "freelancer";
+  icon: LucideIcon | "upwork" | "fiverr" | "freelancer";
   label: string;
 };
 
@@ -20,7 +20,6 @@ export function getSocialLinks(): SocialLink[] {
   const links: SocialLink[] = [
     { name: "LinkedIn", url: s.linkedin, icon: Linkedin, label: "LinkedIn" },
     { name: "GitHub", url: s.github, icon: Github, label: "GitHub" },
-    { name: "X", url: s.x, icon: "x", label: "X / Twitter" },
     { name: "Instagram", url: s.instagram, icon: Instagram, label: "Instagram" },
     { name: "WhatsApp", url: s.whatsapp, icon: MessageCircle, label: "WhatsApp" },
     { name: "Email", url: `mailto:${publicEnv.profile.email}`, icon: Mail, label: "Email" },

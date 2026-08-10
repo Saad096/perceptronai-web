@@ -53,7 +53,7 @@ export function ProductCard({
       onKeyDown={onKeyDown}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
-      className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] text-left transition-all duration-300 hover:border-white/15 hover:bg-white/[0.035] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950 card-glow"
+      className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-ink/[0.06] bg-ink/[0.02] text-left transition-all duration-300 hover:border-ink/15 hover:bg-ink/[0.035] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-base card-glow"
       aria-label={`Open details for ${product.name}`}
     >
       {isImage ? (
@@ -63,13 +63,13 @@ export function ProductCard({
       )}
 
       <div className="flex flex-1 flex-col p-6">
-        <p className="text-[12px] font-medium uppercase tracking-[0.14em] text-white/45">
+        <p className="text-[12px] font-medium uppercase tracking-[0.14em] text-ink/45">
           {product.category}
         </p>
-        <h3 className="mt-2 font-display text-[22px] font-semibold tracking-tight text-white">
+        <h3 className="mt-2 font-display text-[22px] font-semibold tracking-tight text-ink">
           {product.name}
         </h3>
-        <p className="mt-1.5 text-[14.5px] leading-relaxed text-white/65">
+        <p className="mt-1.5 text-[14.5px] leading-relaxed text-ink/65">
           {product.tagline}
         </p>
 
@@ -77,16 +77,16 @@ export function ProductCard({
           {product.techStack.slice(0, 4).map((t) => (
             <span
               key={t}
-              className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[11px] text-white/70"
+              className="rounded-full border border-ink/10 bg-ink/[0.03] px-2.5 py-1 text-[11px] text-ink/70"
             >
               {t}
             </span>
           ))}
         </div>
 
-        <div className="mt-6 flex items-center justify-between border-t border-white/[0.06] pt-4">
-          <span className="text-[13px] font-medium text-white/80">See more</span>
-          <ArrowUpRight className="size-4 text-white/50 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white" />
+        <div className="mt-6 flex items-center justify-between border-t border-ink/[0.06] pt-4">
+          <span className="text-[13px] font-medium text-ink/80">See more</span>
+          <ArrowUpRight className="size-4 text-ink/50 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink" />
         </div>
       </div>
     </div>
@@ -104,7 +104,7 @@ function CoverSlider({
 }) {
   const slides = product.gallery;
   return (
-    <div className="relative aspect-[16/10] w-full overflow-hidden bg-gradient-to-br from-ink-800 to-ink-900">
+    <div className="relative aspect-[16/10] w-full overflow-hidden bg-gradient-to-br from-surface to-base">
       <AnimatePresence mode="sync">
         <motion.div
           key={slides[idx]}
@@ -124,7 +124,7 @@ function CoverSlider({
         </motion.div>
       </AnimatePresence>
 
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/85 via-ink-950/10 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-base/85 via-base/10 to-transparent" />
 
       <div className="absolute left-4 top-4">
         <Badge tone={statusTone[product.status] ?? "default"}>{product.status}</Badge>
@@ -143,7 +143,7 @@ function CoverSlider({
               aria-label={`Go to screenshot ${i + 1}`}
               className={
                 "h-1.5 rounded-full transition-all " +
-                (i === idx ? "w-6 bg-white" : "w-1.5 bg-white/35 hover:bg-white/70")
+                (i === idx ? "w-6 bg-white" : "w-1.5 bg-ink/35 hover:bg-ink/70")
               }
             />
           ))}
@@ -159,24 +159,24 @@ function DarkCover({ product }: { product: Product }) {
       className="relative aspect-[16/10] w-full overflow-hidden"
       style={{
         background:
-          "radial-gradient(circle at 25% 20%, rgba(95,135,255,0.35), transparent 55%), radial-gradient(circle at 75% 80%, rgba(139,92,246,0.35), transparent 55%), linear-gradient(135deg,#0a0f1f 0%, #04060d 60%, #050816 100%)",
+          "radial-gradient(circle at 25% 20%, rgba(110,96,234,0.35), transparent 55%), radial-gradient(circle at 75% 80%, rgba(122,112,240,0.35), transparent 55%), linear-gradient(135deg,#0a0f1f 0%, #04060d 60%, #050816 100%)",
       }}
     >
       <div className="absolute inset-0 bg-grid opacity-30" aria-hidden />
       <div className="absolute inset-0 flex items-center justify-center p-6">
         <div className="text-center">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-brand-200/90">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-accent">
             {product.category}
           </p>
           <p className="mt-2 font-display text-3xl font-semibold tracking-tight text-white md:text-4xl">
             <span className="text-gradient-brand">{product.name}</span>
           </p>
-          <p className="mt-2 text-[12px] uppercase tracking-[0.18em] text-white/45">
+          <p className="mt-2 text-[12px] uppercase tracking-[0.18em] text-white/50">
             preview coming soon
           </p>
         </div>
       </div>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/65 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-base/65 via-transparent to-transparent" />
       <div className="absolute left-4 top-4">
         <Badge tone={statusTone[product.status] ?? "default"}>{product.status}</Badge>
       </div>

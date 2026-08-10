@@ -7,13 +7,13 @@ export default function NotFound() {
   return (
     <section className="pt-40 pb-24">
       <Container className="max-w-2xl text-center">
-        <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-brand-200">
+        <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-accent">
           404 · Page not found
         </p>
-        <h1 className="mt-3 font-display text-5xl font-semibold tracking-tight text-white md:text-6xl">
+        <h1 className="mt-3 font-display text-5xl font-semibold tracking-tight text-ink md:text-6xl">
           That route hasn&apos;t been wired up yet.
         </h1>
-        <p className="mt-4 text-white/65">
+        <p className="mt-4 text-ink/65">
           The link might be stale, or we haven&apos;t built this page yet. Head back home or browse
           our work.
         </p>
@@ -24,7 +24,7 @@ export default function NotFound() {
           <Button href="/products" variant="outline">
             See products
           </Button>
-          <Link href="/contact" className="text-[14px] text-white/65 hover:text-white">
+          <Link href="/contact" className="text-[14px] text-ink/65 hover:text-ink">
             Or contact us →
           </Link>
         </div>

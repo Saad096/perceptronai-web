@@ -1,16 +1,5 @@
 import type { SVGProps } from "react";
 
-export function XIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden {...props}>
-      <path
-        fill="currentColor"
-        d="M18.244 2H21l-6.51 7.443L22 22h-6.81l-5.34-6.99L3.6 22H.84l6.97-7.97L1.5 2h6.96l4.83 6.39L18.244 2Zm-2.39 18h1.886L7.235 4H5.27l10.585 16Z"
-      />
-    </svg>
-  );
-}
-
 export function UpworkIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden {...props}>

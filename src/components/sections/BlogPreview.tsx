@@ -14,7 +14,7 @@ export function BlogPreview() {
           <SectionHeading
             eyebrow="Insights"
             title="Field notes on AI engineering."
-            description="Practical writing from real engagements — what works, what doesn't, what we'd do differently."
+            description="Practical writing from real engagements. What works, what doesn't, what we'd do differently."
           />
           <Button href="/blogs" variant="outline" size="sm">
             All articles <ArrowRight className="size-4" />

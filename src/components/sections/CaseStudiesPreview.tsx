@@ -13,7 +13,7 @@ export function CaseStudiesPreview() {
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading
             eyebrow="Selected work"
-            title="Production AI systems shipped — not just demos."
+            title="Production AI systems shipped, not just demos."
             description="Sanitised summaries of recent engagements. Real client names available under NDA on a call."
           />
           <Button href="/case-studies" variant="outline" size="sm">

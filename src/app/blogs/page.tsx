@@ -21,7 +21,7 @@ export default function BlogsPage() {
           <SectionHeading
             eyebrow="Blog"
             title="Field notes on AI engineering."
-            description="Practical writing from real engagements. No churnalism, no hot takes — just what we'd tell a friend at the table."
+            description="Practical writing from real engagements. No churnalism, no hot takes, just what we'd tell a friend at the table."
           />
         </Container>
       </section>

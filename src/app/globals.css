@@ -1,16 +1,135 @@
+/*
+ * ===========================================================================
+ * QentrixAI design system — Phase 0 R&D notes (2026-07 revamp)
+ * ===========================================================================
+ *
+ * BRAND COLOR DECISION
+ * Studied: Linear, Vercel, Resend, Supabase, Luma, Perplexity, Anthropic,
+ * Midjourney, Notion, ElevenLabs. The shared trait of premium palettes is
+ * commitment: a near-monochrome base plus exactly ONE deliberate accent.
+ * Linear anchors on iris violet (#5E6AD2) over a blue-tinted near-black.
+ * Anthropic and Notion use warm paper whites (#F0EEE6 / #FFFEFC), never
+ * #FFFFFF, which reads as printed matter instead of a screen default.
+ * Supabase commits to a single jade and lets everything else stay neutral.
+ *
+ * Accent chosen: IRIS VIOLET-INDIGO — #5B50E5 (light) / #8B84F5 (dark).
+ * Why: the QentrixAI mark is a blue-to-violet ribbon, so the accent extends
+ * the logo instead of fighting it. It sits on the warm (red) side of indigo,
+ * which keeps it away from both default-blue (Tailwind blue-500, every SaaS
+ * template) and cold stock purple. A sky-blue secondary (#5AAEF0), sampled
+ * from the top of the mark, appears ONLY inside gradients, never alone.
+ *
+ * Light base: #F7F6F3 warm linen, not pure white. Warm greys flatter the
+ * violet accent and avoid clinical glare (same reasoning as Anthropic).
+ * Dark base: #0B0A10, near-black with a violet undertone, not #000000.
+ * Pure black kills perceived depth of shadows and glows.
+ *
+ * LAYOUT OBSERVATIONS (three strongest, from Vercel/Linear/Resend/Supabase/Luma)
+ * 1. Heroes commit to one declarative message and one product artifact
+ *    (a real UI surface or diagram), never a stock-photo backdrop. Density
+ *    lives below the fold. We keep the bento product grid for this reason
+ *    and use downloaded photography only as dim texture, never as subject.
+ * 2. Social proof is quiet: monochrome logo strips and small numerals.
+ *    Nothing carousels, nothing shouts.
+ * 3. CTA discipline: exactly one filled primary and one ghost secondary,
+ *    verb-first copy, repeated in the same positions (nav right, hero,
+ *    footer band) so the path to contact is always one glance away.
+ *
+ * CONTENT AUDIT FLAGS (fixed in src/data + components)
+ * - Em-dashes used as separators across body copy: removed or rephrased.
+ * - "Transforming Ideas into Intelligent Solutions": template-speak,
+ *   replaced with concrete positioning.
+ * - Nav labels (Services / About / Contact) renamed to human, brand-true
+ *   labels (What we build / Our story / Work with us).
+ *
+ * IMAGERY
+ * - /public/images/hero-network.jpg
+ *   https://unsplash.com/photos/photo-1451187580459-43490279c0fa (NASA,
+ *   Unsplash license) — abstract night-earth network, used as dim texture.
+ * - /public/images/architecture-grid.jpg
+ *   https://unsplash.com/photos/photo-1486406146926-c627a92ad1ab
+ *   (Sean Pollock, Unsplash license) — architectural geometry, about/CTA.
+ * - Hero video and sand particle canvas were built in Part 2 and then
+ *   removed per client feedback (content-first hero, orbs + grid only).
+ *
+ * ---------------------------------------------------------------------------
+ * PART 2 MOTION REVAMP — Phase 0 R&D (web pass, 2026-07)
+ * ---------------------------------------------------------------------------
+ * Reference behavior studied: Linear (scroll-driven header geometry and
+ * section reveals), Resend (near-mono palette, restrained card hovers),
+ * Vercel (gradient mesh ambient), Luma (dark glass floating panels),
+ * beepsme (numbered scene cards that pin and cycle, minimal nav).
+ * Technique searches confirmed: canvas 2D handles ~500 particles without
+ * WebGL (GSAP canvas-particles demo), pinned scrub sections are the GSAP
+ * ScrollTrigger pin+scrub pattern (gsap.com/scroll), and Aceternity's
+ * sticky-scroll-reveal is the same pinned-panel idea we build natively.
+ *
+ * COLOR DECISION (Part 2): industry reading for 2025/26 AI brands is
+ * "violet, indigo and near-black, one electric accent, premium not loud"
+ * (biznamelab tech-palette guide, design-bootcamp on violet as AI's color).
+ * We sharpen Part 1's iris to ELECTRIC IRIS #7C6AFA on a DEEP VIOLET-BLACK
+ * base #0D0B14 — warmer and more charged than default blue or stock purple,
+ * still in the logo's blue-violet family. Six committed tokens per theme:
+ * base, surface, surface-2, accent (+glow), text-primary, text-secondary,
+ * border. Light mode stays warm linen (#F7F6F3), never pure white.
+ * ===========================================================================
+ */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ------------------------------------------------------------------ */
+/* Theme tokens. RGB triplets so Tailwind alpha modifiers keep working. */
+/* ------------------------------------------------------------------ */
+
 :root {
-  --bg: #04060d;
-  --bg-2: #070a16;
-  --fg: #f1f5fb;
-  --muted: #94a3b8;
-  --line: rgba(255, 255, 255, 0.08);
-  --brand: #5f87ff;
-  --brand-2: #8b5cf6;
-  --cyan: #22d3ee;
+  /* Light theme: warm linen base, paper-white surfaces */
+  --color-base-rgb: 247 246 243;      /* #F7F6F3 */
+  --color-surface-rgb: 255 255 255;   /* #FFFFFF cards on linen */
+  --color-surface-2-rgb: 240 238 232; /* #F0EEE8 elevated card, modal */
+  --color-ink-rgb: 20 17 30;          /* #14111E text primary */
+  --color-muted-rgb: 74 72 96;        /* #4A4860 text secondary */
+  --color-accent-rgb: 90 72 232;      /* #5A48E8 electric iris, deepened for light contrast */
+  --color-accent-glow: rgb(90 72 232 / 0.15);
+  --color-accent-muted-rgb: 230 228 253; /* #E6E4FD tint for pills/hovers */
+  --color-sky-rgb: 58 134 222;        /* #3A86DE logo sky, gradients only */
+  --color-border: rgb(20 17 30 / 0.08);
+
+  --shadow-card: 0 1px 2px rgba(20, 17, 30, 0.05), 0 12px 32px -16px rgba(20, 17, 30, 0.16);
+  --shadow-header: 0 1px 2px rgba(20, 17, 30, 0.04), 0 8px 30px -12px rgba(20, 17, 30, 0.14);
+  --glow-accent: 0 0 44px -10px rgba(90, 72, 232, 0.35);
+  --gradient-text: linear-gradient(92deg, #14111e 0%, #4636c8 55%, #5a48e8 100%);
+  --gradient-brand: linear-gradient(92deg, #5a48e8 0%, #7c6afa 50%, #3a86de 100%);
+
+  /* Fluid type scale */
+  --text-xs: clamp(12px, 1.2vw, 13px);
+  --text-sm: clamp(13px, 1.4vw, 15px);
+  --text-base: clamp(15px, 1.6vw, 17px);
+  --text-lg: clamp(18px, 2vw, 22px);
+  --text-xl: clamp(24px, 3vw, 32px);
+  --text-2xl: clamp(32px, 4.5vw, 52px);
+  --text-hero: clamp(48px, 6vw, 80px);
+}
+
+.dark {
+  /* Dark theme: deep violet-black, never pure #000 */
+  --color-base-rgb: 13 11 20;         /* #0D0B14 */
+  --color-surface-rgb: 20 18 29;      /* #14121D */
+  --color-surface-2-rgb: 29 26 42;    /* #1D1A2A elevated card, modal */
+  --color-ink-rgb: 240 238 248;       /* #F0EEF8 text primary, slightly warm */
+  --color-muted-rgb: 148 144 168;     /* #9490A8 text secondary */
+  --color-accent-rgb: 124 106 250;    /* #7C6AFA electric iris */
+  --color-accent-glow: rgb(124 106 250 / 0.18);
+  --color-accent-muted-rgb: 41 36 74; /* #29244A deep tint */
+  --color-sky-rgb: 96 170 240;        /* #60AAF0 */
+  --color-border: rgb(255 255 255 / 0.08);
+
+  --shadow-card: 0 1px 0 0 rgba(255, 255, 255, 0.04) inset, 0 0 0 1px rgba(255, 255, 255, 0.05), 0 20px 40px -20px rgba(0, 0, 0, 0.6);
+  --shadow-header: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 16px 40px -18px rgba(0, 0, 0, 0.7);
+  --glow-accent: 0 0 50px -10px rgba(124, 106, 250, 0.45);
+  --gradient-text: linear-gradient(92deg, #ffffff 0%, #cfc8fb 55%, #9fc4f2 100%);
+  --gradient-brand: linear-gradient(92deg, #7c6afa 0%, #a29bf7 50%, #60aaf0 100%);
 }
 
 html {
@@ -19,40 +138,47 @@ html {
 
 html,
 body {
-  background: var(--bg);
-  color: var(--fg);
+  background-color: rgb(var(--color-base-rgb));
+  color: rgb(var(--color-ink-rgb));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
 }
 
 body {
+  transition: background-color 0.3s ease, color 0.3s ease;
   background-image:
-    radial-gradient(800px 400px at 20% -10%, rgba(95, 135, 255, 0.18), transparent 60%),
-    radial-gradient(700px 400px at 100% 10%, rgba(139, 92, 246, 0.14), transparent 60%),
-    linear-gradient(180deg, #04060d 0%, #050816 100%);
+    radial-gradient(800px 420px at 18% -8%, rgb(var(--color-accent-rgb) / 0.10), transparent 60%),
+    radial-gradient(700px 400px at 100% 8%, rgb(var(--color-sky-rgb) / 0.07), transparent 60%);
   background-attachment: fixed;
 }
 
 /* Subtle dotted grid background utility */
 .bg-grid {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    linear-gradient(rgb(var(--color-ink-rgb) / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--color-ink-rgb) / 0.05) 1px, transparent 1px);
   background-size: 40px 40px;
   background-position: -1px -1px;
   mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
 }
 
 .bg-dots {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-image: radial-gradient(rgb(var(--color-ink-rgb) / 0.06) 1px, transparent 1px);
   background-size: 18px 18px;
 }
 
-/* Glass card */
+/* Glassmorphism (used sparingly: header, dark-surface cards, modals) */
+.glass {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgb(var(--color-surface-rgb) / 0.72);
+  border: 1px solid rgb(var(--color-ink-rgb) / 0.10);
+}
+
 .card-glass {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(180deg, rgb(var(--color-ink-rgb) / 0.04), rgb(var(--color-ink-rgb) / 0.015));
+  border: 1px solid rgb(var(--color-ink-rgb) / 0.06);
   backdrop-filter: blur(12px);
 }
 
@@ -67,7 +193,7 @@ body {
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(140deg, rgba(95, 135, 255, 0.5), rgba(139, 92, 246, 0.25) 40%, transparent 70%);
+  background: linear-gradient(140deg, rgb(var(--color-accent-rgb) / 0.5), rgb(var(--color-sky-rgb) / 0.25) 40%, transparent 70%);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -94,22 +220,62 @@ body {
 
 /* Gradient text */
 .text-gradient {
-  background: linear-gradient(90deg, #ffffff 0%, #c8d3ff 50%, #b3e4ff 100%);
+  background: var(--gradient-text);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .text-gradient-brand {
-  background: linear-gradient(90deg, #5f87ff 0%, #8b5cf6 50%, #22d3ee 100%);
+  background: var(--gradient-brand);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
+/* "Learn more" link: accent underline slides in from the left */
+.link-slide {
+  position: relative;
+}
+.link-slide::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1.5px;
+  width: 100%;
+  background: rgb(var(--color-accent-rgb));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.group:hover .link-slide::after,
+.link-slide:hover::after {
+  transform: scaleX(1);
+}
+
+/* Hero ambient: two slow-drifting radial orbs. The single ambient element. */
+@keyframes orb-drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  33% { transform: translate3d(4%, -3%, 0) scale(1.06); }
+  66% { transform: translate3d(-3%, 2%, 0) scale(0.97); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  will-change: transform;
+  animation: orb-drift 16s ease-in-out infinite;
+}
+.orb-2 {
+  animation-duration: 20s;
+  animation-direction: reverse;
+}
+
 /* Focus ring */
 :focus-visible {
-  outline: 2px solid rgba(95, 135, 255, 0.8);
+  outline: 2px solid rgb(var(--color-accent-rgb) / 0.8);
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -120,17 +286,120 @@ body {
   height: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgb(var(--color-ink-rgb) / 0.12);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgb(var(--color-ink-rgb) / 0.22);
 }
 
 /* Marquee parent */
 .marquee-mask {
   mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
   -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+
+/* ------------------------------------------------------------------ */
+/* Part 2 motion revamp: cursor, hero video, animated gradients        */
+/* ------------------------------------------------------------------ */
+
+/* Magnetic cursor. Native cursor hides only while the custom one runs. */
+html.has-custom-cursor,
+html.has-custom-cursor body,
+html.has-custom-cursor a,
+html.has-custom-cursor button {
+  cursor: none;
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgb(var(--color-accent-rgb));
+  pointer-events: none;
+  z-index: 99999;
+  will-change: transform;
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid rgb(var(--color-accent-rgb));
+  background: var(--color-accent-glow);
+  pointer-events: none;
+  z-index: 99998;
+  will-change: transform;
+  display: grid;
+  place-items: center;
+  transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, border 0.25s ease;
+}
+
+.cursor-ring.cursor-hover {
+  width: 56px;
+  height: 56px;
+  background: rgb(var(--color-accent-rgb) / 0.25);
+  border-color: rgb(var(--color-accent-rgb));
+}
+
+.cursor-dot.cursor-hover {
+  width: 4px;
+  height: 4px;
+  opacity: 0.6;
+}
+
+.cursor-ring.cursor-text {
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border-width: 1px;
+}
+
+.cursor-ring.cursor-label {
+  width: 56px;
+  height: 56px;
+  background: rgb(var(--color-accent-rgb) / 0.9);
+  border-color: transparent;
+}
+
+.cursor-ring-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.cursor-ring.cursor-label .cursor-ring-label {
+  opacity: 1;
+}
+
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
+
+/* Animated gradient hero headline */
+.gradient-animate {
+  background-size: 200% auto;
+  animation: gradient-shift 6s linear infinite;
+}
+
+@keyframes gradient-shift {
+  to {
+    background-position: 200% center;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -141,5 +410,10 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
   }
 }

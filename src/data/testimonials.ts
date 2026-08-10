@@ -12,7 +12,7 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "QentrixAI's team walked us from a vague AI idea to a deployed product in eight weeks — with eval dashboards, runbooks, and a roadmap our team could continue.",
+      "QentrixAI's team walked us from a vague AI idea to a deployed product in eight weeks, with eval dashboards, runbooks, and a roadmap our team could continue.",
     author: "Internal stakeholder",
     role: "Director of Product (NDA)",
     highlight: true,
@@ -25,7 +25,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "The voice agent went live on real customer calls within a quarter. Containment numbers improved week over week — and we always know why, thanks to the eval suite.",
+      "The voice agent went live on real customer calls within a quarter. Containment numbers improved week over week, and we always know why thanks to the eval suite.",
     author: "Operations leader",
     role: "Recruitment Agency (NDA)",
   },
